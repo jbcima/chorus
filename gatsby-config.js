@@ -26,11 +26,15 @@ module.exports = {
     },
     __key: "pages"
   }, {
-    resolve: 'gatsby-plugin-google-gtag',
+    resolve: `gatsby-plugin-google-gtag`,
     options: {
       trackingIds: [
-        "G-E80RWTXRFM"
-      ]
-    }
+        "G-E80RWTXRFM",
+      ],
+      pluginConfig: {
+        head: true,
+        anonymize_ip: true,
+      },
+    },
   }]
 };
