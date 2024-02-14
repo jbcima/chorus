@@ -10,6 +10,9 @@ logo_url: /images/logo.png
 media_folder: "static/uploads" 
 public_folder: "/uploads"
 
+editor:
+  preview: false
+
 collections:
   - name: "blog"
     label: "Blog"
