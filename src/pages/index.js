@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import "../styles/style.css"
 
 const IndexPage = ({data}) => {
+  console.log(data)
   return (
     <main>
       <p><span><span> </span>_______ _______ _______ _______ _______ _______<span> </span></span></p>
@@ -16,11 +17,29 @@ const IndexPage = ({data}) => {
       <p className="p1 container"><span className="p1 s1 label">S.Maria</span><span className="text"> Nov 18 2023</span></p>
       <p><span></span><br /></p>
       <p className="p1 container"><span className="p1 s1 label">S.Maria</span><span className="text"> Nov 18 2023</span></p>
-      <p>{data}</p>
     </main>
   )
 }
 
-export default IndexPage
+export const pageQuery = graphql`
+query pageQuery {
+  allMarkdownRemark {
+    edges {
+      node {
+      id
+      html
+      frontmatter {
+        title
+        description
+        audio
+      }
+      }
+    }
+  }
+}
+`;
+
 
 export const Head = () => <title>Home Page</title>
+
+export default IndexPage

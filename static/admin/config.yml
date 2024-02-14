@@ -41,9 +41,9 @@ collections:
       - label: Title
         name: title
         widget: string
-      - label: Body
+      - label: Description
         required: false
-        name: body
+        name: description
         widget: string
       - label: "Audio"
         required: false
