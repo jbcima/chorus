@@ -1,4 +1,5 @@
 ---
+title: c
 content:
   - type: album
     track:
