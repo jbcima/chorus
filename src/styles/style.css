@@ -1,0 +1,7 @@
+p {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Courier; color: #000000;}
+span {white-space: pre;}
+a {text-decoration: none;}
+.container {width: 49ch; display: flex; justify-content: space-between;}
+.label {overflow: hidden; text-overflow: ellipsis " [..]"; white-space: nowrap;}
+.label:after { content: " ..................................................." }
+.text {flex-shrink: 0;}

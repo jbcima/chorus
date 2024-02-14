@@ -14,14 +14,20 @@ collections:
   - name: pages
     label: Pages
     label_singular: 'Page'
-    folder: _pages
+    folder: content/pages
     create: true
-    nested: { depth: 100 }
+    nested:
+      depth: 100 
     fields:
       - label: Title
         name: title
         widget: string
+      - label: Body
+        required: false
+        name: body
+        widget: markdown
       - label: "Audio"
+        required: false
         name: "audio"
         widget: "file"
         media_library:
