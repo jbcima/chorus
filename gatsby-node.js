@@ -19,8 +19,9 @@ const pages = await graphql(`
                     title
                     file
                     track {
-                    file
-                    title
+                        artist
+                        title
+                        file
                     }
                 }
                 }

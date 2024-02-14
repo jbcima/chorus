@@ -73,7 +73,7 @@ collections:
               widget: string
             - label: 'Track'
               name: 'track'
-              widget: 'list'
+              widget: 'object'
               fields:
                 - {label: Artist, name: artist, widget: string, required: false}
                 - {label: Title, name: title, widget: string }
