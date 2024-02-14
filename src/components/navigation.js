@@ -8,15 +8,6 @@ const Navigation = props => {
     const links = listofFolders.map((node) => node.node.base);
   return (
     <div>
-      {/* {listofFolders.map(({ node }) =>
-        node.relativeDirectory === "" ? (
-          <div>
-            <p>{node.relativePath}</p> <p>is a root folder</p>
-          </div>
-        ) : (
-          <div>Folder: {node.base } is a child of {node.relativeDirectory}</div>
-        )
-      )} */}
       <p><span><span> </span>_______ _______ _______ _______ _______ _______<span> </span></span></p>
       <p><span>|\ <span>    </span>/|\ <span>    </span>/|\ <span>    </span>/|\ <span>    </span>/|\ <span>    </span>/|\ <span>    </span>/|</span></p>
       <p><span>| +---+ | +---+ | +---+ | +---+ | +---+ | +---+ |</span></p>
