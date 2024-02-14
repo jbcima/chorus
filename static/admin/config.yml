@@ -43,7 +43,6 @@ collections:
     fields:
       - label: Title
         name: title
-        required: false
         widget: string
       - label: Description
         required: false
