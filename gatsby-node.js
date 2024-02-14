@@ -8,19 +8,23 @@ const pages = await graphql(`
     query PagesQuery {
         allMarkdownRemark {
             edges {
-                node {
+            node {
                 id
                 fileAbsolutePath
-                    frontmatter {
-                        title
-                        description
-                        audio {
-                            artist
-                            track
-                            file
-                        }
+                frontmatter {
+                title
+                content {
+                    type
+                    artist
+                    title
+                    file
+                    track {
+                    file
+                    title
                     }
                 }
+                }
+            }
             }
         }
     }
@@ -39,17 +43,14 @@ const navigation = await graphql(`
         }
     }
 `)
-// const navigationData = navigation.data.allDirectory.edges.filter((node) => node.node.relativeDirectory == "_pages");
 
 const pageData = pages.data.allMarkdownRemark.edges;
-
 pageData.forEach(edge => {
     let path = edge.node.fileAbsolutePath.split("_pages/")[1].split("index.md")[0]
-    let parent = 
     createPage({
         path: `/` + path,
         component: pageTemplate,
-        context: {title: edge.node.frontmatter.title, description: edge.node.frontmatter.description, audio: edge.node.frontmatter.audio, navigation: navigation, currentPath: path } // This is to pass data as props to your component.
+        context: {title: edge.node.frontmatter.title, description: edge.node.frontmatter.description, content: edge.node.frontmatter.content, navigation: navigation, currentPath: path } // This is to pass data as props to your component.
         })
     })
 

@@ -5,3 +5,21 @@ a {text-decoration: none;}
 .label {overflow: hidden; text-overflow: ellipsis " [..]"; white-space: nowrap;}
 .label:after { content: " ..................................................." }
 .text {flex-shrink: 0;}
+
+.drop {
+  cursor: pointer;
+  display: block;
+}
+
+input[type="checkbox"]  {
+ display: none; /* hide the checkboxes */
+}
+
+input +.drop +  div
+
+{
+  display:none;
+}
+input:checked + .drop + div{
+  display:block;
+}
