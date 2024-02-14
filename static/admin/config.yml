@@ -5,7 +5,7 @@ backend:
 
 site_url: https://or-us.ch/
 
-logo_url: /images/logo.png
+logo_url: /images/icon.jpeg
 
 media_folder: "static/uploads" 
 public_folder: "/uploads"
