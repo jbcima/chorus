@@ -1,0 +1,30 @@
+backend:
+  name: github
+  repo: jbcima/chorus
+  branch: main
+
+site_url: https://or-us.ch/
+
+logo_url: https://or-us.ch/images/logo.png
+
+media_folder: "static/uploads" 
+public_folder: "/uploads"
+
+collections:
+  - name: pages
+    label: Pages
+    label_singular: 'Page'
+    folder: _pages
+    create: true
+    nested: { depth: 100 }
+    fields:
+      - label: Title
+        name: title
+        widget: string
+      - label: "Audio"
+        name: "audio"
+        widget: "file"
+        media_library:
+          config:
+            multiple: true
+    meta: { path: { widget: string, label: 'Path', index_file: 'index' } }
