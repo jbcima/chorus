@@ -4,7 +4,7 @@
 module.exports = {
   siteMetadata: {
     title: `chorus`,
-    siteUrl: `https://www.yourdomain.tld`
+    siteUrl: `https://www.or-us.ch`
   },
   plugins: ["gatsby-plugin-google-gtag", "gatsby-plugin-image", "gatsby-plugin-sitemap", "gatsby-plugin-decap-cms", {
     resolve: 'gatsby-plugin-manifest',
@@ -25,5 +25,12 @@ module.exports = {
       "path": "./src/pages/"
     },
     __key: "pages"
+  }, {
+    resolve: 'gatsby-plugin-google-gtag',
+    options: {
+      trackingIds: [
+        "G-E80RWTXRFM"
+      ]
+    }
   }]
 };
