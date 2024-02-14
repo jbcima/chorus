@@ -14,4 +14,6 @@ const DirectoryPage = props => {
   )
 }
 
+export const Head = () => <title>Chorus</title>
+
 export default DirectoryPage

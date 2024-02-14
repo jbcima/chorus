@@ -25,7 +25,6 @@ export const NavigationQuery = graphql`
   }
 `;
 
-
-export const Head = () => <title>Home</title>
+export const Head = () => <title>Chorus</title>
 
 export default IndexPage
