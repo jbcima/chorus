@@ -1,4 +1,5 @@
-p {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Courier; color: #000000;}
+p, label {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Courier; color: #000000;}
+label{width: 49ch;}
 span {white-space: pre;}
 a {text-decoration: none;}
 .container {width: 49ch; display: flex; justify-content: space-between;}
