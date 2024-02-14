@@ -6,10 +6,17 @@ module.exports = {
     title: `chorus`,
     siteUrl: `https://www.or-us.ch`
   },
-  plugins: ["gatsby-plugin-google-gtag", "gatsby-plugin-image", "gatsby-plugin-sitemap", "gatsby-plugin-decap-cms", {
+  plugins: ["gatsby-plugin-gtag", "gatsby-plugin-image", "gatsby-plugin-sitemap", "gatsby-plugin-decap-cms", {    
+    resolve: `gatsby-plugin-gtag`,
+      options: {
+        // your google analytics tracking id
+        trackingId: `G-E80RWTXRFM`
+      },
+  },
+  {
     resolve: 'gatsby-plugin-manifest',
     options: {
-      "icon": "src/images/icon.png"
+      "icon": "src/images/logo.png"
     }
   }, "gatsby-transformer-remark", "gatsby-plugin-sharp", "gatsby-transformer-sharp", {
     resolve: 'gatsby-source-filesystem',
@@ -25,16 +32,5 @@ module.exports = {
       "path": "./src/pages/"
     },
     __key: "pages"
-  }, {
-    resolve: `gatsby-plugin-google-gtag`,
-    options: {
-      trackingIds: [
-        "G-E80RWTXRFM",
-      ],
-      pluginConfig: {
-        head: true,
-        anonymize_ip: true,
-      },
-    },
   }]
 };
