@@ -3,7 +3,6 @@ import { graphql } from 'gatsby'
 import "../styles/style.css"
 
 const IndexPage = ({data}) => {
-  console.log(data)
   return (
     <main>
       <p><span><span> </span>_______ _______ _______ _______ _______ _______<span> </span></span></p>
@@ -13,31 +12,28 @@ const IndexPage = ({data}) => {
       <p><span>| |<a>C</a><span>  </span>| | |<a>H</a><span>  </span>| | |<a>O</a><span>  </span>| | |<a>R</a><span>  </span>| | |<a>U</a><span>  </span>| | |<a>S</a><span>  </span>| |</span></p>
       <p><span>| +---+ | +---+ | +---+ | +---+ | +---+ | +---+ |</span></p>
       <p><span>|/_____\|/_____\|/_____\|/_____\|/_____\|/_____\|</span></p>
-      <p><span></span><br /></p>
-      <p className="p1 container"><span className="p1 s1 label">S.Maria</span><span className="text"> Nov 18 2023</span></p>
-      <p><span></span><br /></p>
-      <p className="p1 container"><span className="p1 s1 label">S.Maria</span><span className="text"> Nov 18 2023</span></p>
     </main>
   )
 }
 
-export const pageQuery = graphql`
-query pageQuery {
-  allMarkdownRemark {
-    edges {
-      node {
-      id
-      html
-      frontmatter {
-        title
-        description
-        audio
-      }
-      }
-    }
-  }
-}
-`;
+// export const pageQuery = graphql`
+// query pageQuery {
+//   allMarkdownRemark {
+//     edges {
+//       node {
+//       id
+//       html
+//       frontmatter {
+//         title
+//         description
+//         audio
+//       }
+//       fileAbsolutePath
+//       }
+//     }
+//   }
+// }
+// `;
 
 
 export const Head = () => <title>Home Page</title>
