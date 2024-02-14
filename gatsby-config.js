@@ -16,7 +16,7 @@ module.exports = {
   {
     resolve: 'gatsby-plugin-manifest',
     options: {
-      "icon": "src/images/logo.png"
+      "icon": "src/images/icon.jpeg"
     }
   }, "gatsby-transformer-remark", "gatsby-plugin-sharp", "gatsby-transformer-sharp", {
     resolve: 'gatsby-source-filesystem',
