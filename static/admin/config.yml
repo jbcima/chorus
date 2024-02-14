@@ -14,7 +14,7 @@ collections:
   - name: pages
     label: Pages
     label_singular: 'Page'
-    folder: content/pages
+    folder: _pages
     create: true
     nested:
       depth: 100 
