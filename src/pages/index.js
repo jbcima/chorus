@@ -6,22 +6,22 @@ import "../styles/style.css"
 const IndexPage = ({data}) => {
   return (
     <main>
-      <Nav data={data} />
+      <Nav navigation={data.navigation} />
     </main>
   )
 }
 
 export const NavigationQuery = graphql`
   query NavigationQuery {
-      allDirectory {
-          edges {
-              node {
-              relativeDirectory
-              relativePath
-              base
-              }
+    navigation: allDirectory {
+      edges {
+          node {
+          relativeDirectory
+          relativePath
+          base
           }
       }
+    }
   }
 `;
 

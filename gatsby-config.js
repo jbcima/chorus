@@ -1,10 +1,8 @@
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
-const adapter = require("gatsby-adapter-netlify")
 
 module.exports = {
-  adapter: adapter(),
   siteMetadata: {
     title: `chorus`,
     siteUrl: `https://www.or-us.ch`

@@ -4,55 +4,52 @@ exports.createPages = async ({ graphql, actions }) => {
     const { createPage } = actions
     const pageTemplate = path.resolve(`src/components/directory.js`)
 
-const pages = await graphql(`
-    query PagesQuery {
-        allMarkdownRemark {
-            edges {
-            node {
-                id
-                fileAbsolutePath
-                frontmatter {
-                title
-                content {
-                    type
-                    artist
+    const data = await graphql(`
+        query PagesQuery {
+            pages: allMarkdownRemark {
+                edges {
+                node {
+                    id
+                    fileAbsolutePath
+                    frontmatter {
                     title
-                    file
-                    track {
+                    content {
+                        type
                         artist
                         title
                         file
+                        track {
+                            artist
+                            title
+                            file
+                        }
+                    }
                     }
                 }
                 }
-            }
-            }
-        }
-    }
-`)
-
-const navigation = await graphql(`
-    query NavigationQuery {
-        allDirectory {
-            edges {
-                node {
-                relativeDirectory
-                relativePath
-                base
+            },
+            navigation: allDirectory {
+                edges {
+                    node {
+                    relativeDirectory
+                    relativePath
+                    base
+                    }
                 }
             }
         }
-    }
-`)
+    `)
 
-const pageData = pages.data.allMarkdownRemark.edges;
-pageData.forEach(edge => {
-    let path = edge.node.fileAbsolutePath.split("_pages/")[1].split("index.md")[0]
-    createPage({
-        path: `/` + path,
-        component: pageTemplate,
-        context: {title: edge.node.frontmatter.title, description: edge.node.frontmatter.description, content: edge.node.frontmatter.content, navigation: navigation, currentPath: path } // This is to pass data as props to your component.
-        })
+    const pageData = data.data.pages.edges;
+    pageData.forEach(edge => {
+        if(edge.node.fileAbsolutePath.includes("_pages")) {
+            let path = edge.node.fileAbsolutePath.split("_pages/")[1].split("index.md")[0]
+            createPage({
+                path: `/` + path,
+                component: pageTemplate,
+                context: {title: edge.node.frontmatter.title, description: edge.node.frontmatter.description, content: edge.node.frontmatter.content, navigation: data.data.navigation, currentPath: path } // This is to pass data as props to your component.
+            })
+        }
     })
 
 }
