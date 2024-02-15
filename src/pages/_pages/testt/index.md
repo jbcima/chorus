@@ -11,4 +11,8 @@ content:
         file: test
     artist: test
     title: test
+  - type: track
+    artist: test
+    title: testts
+    file: test
 ---
