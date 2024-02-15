@@ -12,7 +12,7 @@ const DirectoryPage = props => {
       {content.map((item, i) => 
         item.type === "track" ? (
           <>
-            <p className="p1 container"><span className="p1 s1 label">{item.artist}</span><span className="text"> {item.title}</span></p><p><span></span><br /></p>
+            <p className="p1 container"><span className="p1 s1 label">{item.artist}</span><span className="text"><a href={item.file}>{item.title ? ( ' ' + item.title ) : null }</a></span></p><p><span></span><br /></p>
           </>
         ) : 
         <>

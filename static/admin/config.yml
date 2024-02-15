@@ -58,7 +58,7 @@ collections:
             fields:
               - {label: Artist, name: artist, widget: string, required: false}
               - {label: Title, name: title, widget: string }
-              - {label: File, name: file, widget: "file"}
+              - {label: File, name: file, widget: string}
           - label: 'Album'
             name: 'album'
             widget: 'object'
@@ -77,5 +77,5 @@ collections:
               fields:
                 - {label: Artist, name: artist, widget: string, required: false}
                 - {label: Title, name: title, widget: string }
-                - {label: File, name: file, widget: "file"}
+                - {label: File, name: file, widget: string}
     meta: { path: { widget: string, label: 'Path', index_file: 'index' } }
