@@ -1,7 +1,10 @@
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
+const adapter = require("gatsby-adapter-netlify")
+
 module.exports = {
+  adapter: adapter(),
   siteMetadata: {
     title: `chorus`,
     siteUrl: `https://www.or-us.ch`
@@ -16,7 +19,7 @@ module.exports = {
   {
     resolve: 'gatsby-plugin-manifest',
     options: {
-      "icon": "src/images/icon.jpeg"
+      "icon": "./src/images/icon.jpeg"
     }
   }, "gatsby-transformer-remark", "gatsby-plugin-sharp", "gatsby-transformer-sharp", {
     resolve: 'gatsby-source-filesystem',
