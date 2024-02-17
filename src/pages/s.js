@@ -5,7 +5,6 @@ import "../styles/style.css"
 
 // eslint-disable-next-line
 export const BlogPostTemplate = ({ title, date, body}) => {
-  console.log(title)
   return (
     <section>
       <p>{title}</p>

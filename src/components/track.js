@@ -5,23 +5,26 @@ import useSound from "use-sound"
 
 const Track = props => {
   const url = "//or-us.ch/file/"
-  const [isHidden, setIsHidden] = useState(true);
   const selectTrack = () => {
-    if (!isHidden && sound) {
-      pause(); 
-      setIsPlaying(false);
-    } else {
+    if (!props.isOpen && sound && !isPlaying) {
       play();
       setIsPlaying(true);
+      props.changeIndex()
     }
-    setIsHidden((isVisible) => !isVisible);
+    
   };
+  useEffect(() => {
+    if (!props.isOpen) {
+      pause();
+      setIsPlaying(false);
+    }
+  }, [props.isOpen]);
   const [isPlaying, setIsPlaying] = useState(false);
   const [play, { stop, pause, duration, sound }] = useSound('https://or-us.ch/c/S.Maria-Chorus-II-Nov-18-2023.mp3', {
     html5: true,
     preload: 'metadata',
     onend: function() {
-      console.log('Finished!');
+      
     }
   });
   const playingButton = () => {
@@ -48,7 +51,6 @@ const Track = props => {
     min: min,
     sec: secRemain
   }
-  
   useEffect(() => {
     const interval = setInterval(() => {
       if (sound) {
@@ -71,9 +73,10 @@ const Track = props => {
       <span className="p1 s1 label">{props.artist}</span>
       <span className="text">{props.title ? ( ' ' + props.title ) : null }</span>
       </p>
-      {!isHidden && 
-      <div className="controls">
       <br />
+      {props.isOpen && isPlaying}
+      {props.isOpen && 
+      <div className="controls">
         <p>{currTime.hr}:{currTime.min}:{currTime.sec}/{time.hr}:{time.min}:{time.sec}</p>
         {!isPlaying ? (
           <p className="playButton" onClick={playingButton}>Play</p>
