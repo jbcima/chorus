@@ -16,17 +16,18 @@ const Files = props => {
           <>
             <Track 
               {...item}      
-              key={index}
+              id={index}
               isOpen={activeIndex === index}
-              changeIndex={() => changeIndex(index)} 
+              changeIndex={value => changeIndex(value)} 
             />
           </>
         ) : 
         <>
-            <Album 
+        <Album 
             {...item}
             index={index}
-            changechildIndex={(childIndex) => changeIndex(childIndex)} 
+            activeIndex={activeIndex}
+            changeIndex={value => changeIndex(value)} 
             />
         </>
       ))}

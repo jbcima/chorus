@@ -9,7 +9,7 @@ const Track = props => {
     if (!props.isOpen && sound && !isPlaying) {
       play();
       setIsPlaying(true);
-      props.changeIndex()
+      props.changeIndex(props.id)
     }
     
   };
@@ -76,16 +76,17 @@ const Track = props => {
       <br />
       {props.isOpen && isPlaying}
       {props.isOpen && 
-      <div className="controls">
-        <p>{currTime.hr}:{currTime.min}:{currTime.sec}/{time.hr}:{time.min}:{time.sec}</p>
-        {!isPlaying ? (
-          <p className="playButton" onClick={playingButton}>Play</p>
-        ) : (
-          <p className="playButton" onClick={playingButton}>Pause</p>
-        )}
-        <p><a href={url + props.file} className="download">Download</a></p>
-      </div>}
-      <br />
+        <div className="controls">
+          <p>{currTime.hr}:{currTime.min}:{currTime.sec}/{time.hr}:{time.min}:{time.sec}</p>
+          {!isPlaying ? (
+            <p className="playButton" onClick={playingButton}>Play</p>
+          ) : (
+            <p className="playButton" onClick={playingButton}>Pause</p>
+          )}
+          <p><a href={url + props.file} className="download">Download</a></p>
+          <br />
+        </div>
+      }
     </React.Fragment>
   )
 }
