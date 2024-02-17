@@ -16,21 +16,21 @@ const Album = props => {
           <span className="text">{props.title ? ( ' ' + props.title ) : null }</span>
         </p>
         <br />
-        {isOpen && 
           <div>
             {
               props.track.map((track, index) => 
                 <>
+                <div style={{display: (isOpen) ? 'block' : 'none'}}>
                   <Track 
                     {...track}      
                     id={props.index + '_' + index}
                     isOpen={props.activeIndex === (props.index + '_' + index)}
                     changeIndex={() => props.changeIndex(props.index + '_' + index)} 
                   />
+                </div>
                 </>
             )}
           </div>
-        }
     </React.Fragment>
   )
 }

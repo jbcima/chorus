@@ -74,7 +74,6 @@ const Track = props => {
       <span className="text">{props.title ? ( ' ' + props.title ) : null }</span>
       </p>
       <br />
-      {props.isOpen && isPlaying}
       {props.isOpen && 
         <div className="controls">
           <p>{currTime.hr}:{currTime.min}:{currTime.sec}/{time.hr}:{time.min}:{time.sec}</p>
