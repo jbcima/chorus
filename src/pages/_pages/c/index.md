@@ -15,4 +15,19 @@ content:
     title: asdfasdf
     artist: sdafasdf
     art: /uploads/screenshot-2024-02-16-at-9.48.05-pm.png
+  - type: track
+    artist: sdafsd
+    title: asdfdasf
+    file: sdafsda
+  - type: album
+    title: asdfasdf
+    artist: sadfasdfa
+    track:
+      - artist: asdfsa
+        title: asfsdaf
+        file: sadfsaf
+  - type: track
+    artist: asdf
+    title: asfsadf
+    file: sdafddsaf
 ---
