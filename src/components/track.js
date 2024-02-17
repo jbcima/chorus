@@ -8,7 +8,7 @@ const Track = props => {
   const [isHidden, setIsHidden] = useState(true);
   const selectTrack = () => {
     if (!isHidden && sound) {
-      stop(); 
+      pause(); 
       setIsPlaying(false);
     } else {
       play();
