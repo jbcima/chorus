@@ -1,9 +1,0 @@
----
-deployment:
-  tasks:
-    - export DEPLOYPATH=/home/pratikka/public_html/gatsby-pratikkataria
-    - export REPOPATH=/home/pratikka/repositories/gatsby-pratikkataria
-    - rm -rf $DEPLOYPATH/*
-    - /bin/rsync -av --exclude=".*" $REPOPATH/ $DEPLOYPATH
-    - cd $DEPLOYPATH && chmod -R 755 . && cd ~/public_html/ && /usr/bin/find . -maxdepth 1 -regextype posix-egrep -regex ".\/(404|icons|offline-plugin-app-shell-fallback|page-data|static|workbox-v.+?|.+?.js|.+?.js.map|.+?.css|webpack.stats.json|chunk-map.json|manifest.webmanifest|.+?.html)" -exec rm -r {} +
-    - /bin/rsync -av --exclude=".*" $DEPLOYPATH/ ~/public_html

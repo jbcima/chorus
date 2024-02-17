@@ -15,6 +15,7 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "cpx": "^1.5.0",
     "decap-cms-app": "^3.1.1",
     "gatsby": "^5.13.2",
     "gatsby-adapter-netlify": "^1.1.3",
