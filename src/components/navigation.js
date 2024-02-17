@@ -3,9 +3,6 @@ import "../styles/style.css"
 
 const Navigation = props => {
     const path = props.path
-    console.log('props listofFolders3')
-    console.log(props.navigation)
-    console.log('props listofFolders3')
     const listofFolders = props.navigation.edges
     const links = listofFolders.map((node) => node.node.base);
   return (

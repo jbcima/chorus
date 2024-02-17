@@ -55,6 +55,7 @@ collections:
               - {label: Artist, name: artist, widget: string, required: false}
               - {label: Title, name: title, widget: string }
               - {label: File, name: file, widget: string}
+              - {label: Art, name: art, widget: "file", required: false}
           - label: 'Album'
             name: 'album'
             widget: 'object'
@@ -74,4 +75,9 @@ collections:
                 - {label: Artist, name: artist, widget: string, required: false}
                 - {label: Title, name: title, widget: string }
                 - {label: File, name: file, widget: string}
+                - {label: Art, name: art, widget: "file", required: false}
+            - label: Art
+              name: art
+              required: false
+              widget: "file"
     meta: { path: { widget: string, label: 'Path', index_file: 'index' } }
