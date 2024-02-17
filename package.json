@@ -10,7 +10,7 @@
     "develop": "gatsby develop",
     "start": "gatsby develop",
     "build": "rimraf .cache && rimraf public && gatsby build",
-    "deploy": "rimraf dist-remote/chorus/* && cpx \"public/**/*.*\" dist-remote/chorus && cd dist-remote/chorus && git add . && git commit -m \"Update\" && mkdir -p ~/.ssh && echo -e \"${SSH_KEY//_/\\n}\" > ~/.ssh/id_rsa && chmod og-rwx ~/.ssh/id_rsa && GIT_SSH_COMMAND=\"ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no\" && git checkout && git push -u origin master",
+    "deploy": "rimraf dist-remote/chorus/* && cpx \"public/**/*.*\" dist-remote/chorus && cd dist-remote/chorus && git add . && git commit -m \"Update\" && mkdir -p ~/.ssh && echo -e \"${SSH_KEY//_/\\n}\" > ~/.ssh/id_rsa && chmod og-rwx ~/.ssh/id_rsa && GIT_SSH_COMMAND=\"ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no\" && git checkout main && git push -u origin main",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
   },
