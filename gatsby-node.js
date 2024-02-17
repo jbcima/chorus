@@ -4,6 +4,8 @@ exports.createSchemaCustomization = ({ actions }) => {
     const { createTypes } = actions
     const typeDefs = `
         type MarkdownRemark implements Node {
+            id: String,
+            fileAbsolutePath: String,
             frontmatter: Frontmatter
         }
         type Frontmatter {
