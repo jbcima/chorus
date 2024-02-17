@@ -49,10 +49,12 @@ exports.createPages = async ({ graphql, actions }) => {
                         artist
                         title
                         file
+                        art
                         track {
                             artist
                             title
                             file
+                            art
                         }
                     }
                     }

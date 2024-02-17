@@ -8,7 +8,7 @@ const Files = props => {
   const [activeIndex, setActiveIndex] = useState(null);
   const changeIndex = (index) => {
     setActiveIndex((prevIndex) => (prevIndex === index ? null : index));
-   };
+  };
   return (
     <main>
       {props.content && props.content.map((item, index) => (

@@ -1,9 +1,11 @@
 import * as React from "react"
 import { useEffect, useState } from "react"
 import "../styles/style.css"
+import ImageHover from './image-hover.js';
 import useSound from "use-sound"
 
 const Track = props => {
+  const [onShow, setOnShow] = useState(false);
   const url = "//or-us.ch/file/"
   const selectTrack = () => {
     if (!props.isOpen && sound && !isPlaying) {
@@ -13,20 +15,20 @@ const Track = props => {
     }
     
   };
-  useEffect(() => {
-    if (!props.isOpen) {
-      pause();
-      setIsPlaying(false);
-    }
-  }, [props.isOpen]);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [play, { stop, pause, duration, sound }] = useSound('https://or-us.ch/c/S.Maria-Chorus-II-Nov-18-2023.mp3', {
+  const [play, { pause, duration, sound }] = useSound('https://or-us.ch/c/S.Maria-Chorus-II-Nov-18-2023.mp3', {
     html5: true,
     preload: 'metadata',
     onend: function() {
       
     }
   });
+  useEffect(() => {
+    if (!props.isOpen) {
+      pause();
+      setIsPlaying(false);
+    }
+  }, [props.isOpen]);
   const playingButton = () => {
     if (isPlaying) {
       pause(); 
@@ -69,7 +71,8 @@ const Track = props => {
   }, [sound]);
   return (
     <React.Fragment>
-      <p className="p1 container track" onClick={selectTrack}>
+      <ImageHover image={props.art} onShow={onShow} />
+      <p className="p1 container track" onClick={selectTrack} onMouseEnter={() => setOnShow(() => true)} onMouseLeave={() => setOnShow(() => false)}>
       <span className="p1 s1 label">{props.artist}</span>
       <span className="text">{props.title ? ( ' ' + props.title ) : null }</span>
       </p>

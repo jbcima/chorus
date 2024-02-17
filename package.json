@@ -9,7 +9,8 @@
   "scripts": {
     "develop": "gatsby develop",
     "start": "gatsby develop",
-    "build": "gatsby build",
+    "build": "rimraf .cache && rimraf public && gatsby build",
+    "deploy": "rimraf dist-remote/chorus/* && cpx \"public/**/*.*\" dist-remote/chorus && cd dist-remote/chorus && git add . && git commit -m \"Update\" && git push -u origin master",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
   },
