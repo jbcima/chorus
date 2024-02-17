@@ -1,9 +1,10 @@
 import * as React from "react"
 import GIF from '../images/404.gif'
+import "../styles/style.css"
 
 const NotFoundPage = () => {
   return (
-    <main>
+    <main className="container">
       <img src={GIF} />
     </main>
   )

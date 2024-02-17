@@ -3,10 +3,31 @@ import Nav from '../components/navigation.js';
 import { graphql } from 'gatsby'
 import "../styles/style.css"
 
+// eslint-disable-next-line
+export const BlogPostTemplate = ({ title, date, body}) => {
+  console.log(title)
+  return (
+    <section>
+      <p>{title}</p>
+      <br />
+      <div dangerouslySetInnerHTML={{__html: body}}/>
+      <br />
+      <p>{date}……</p>
+      <br />
+    </section>
+  );
+};
+
 const BlogPage = ({location, data}) => {
+  const posts = data.posts.edges;
   return (
     <main>
       <Nav navigation={data.navigation} path={location.pathname} />
+      {posts.map((post) => 
+        <>
+          <BlogPostTemplate title={post.node.frontmatter.title} date={post.node.frontmatter.date} body={post.node.html} />
+        </>
+      )}
     </main>
   )
 }
@@ -14,14 +35,16 @@ const BlogPage = ({location, data}) => {
 export const BlogQuery = graphql`
 query BlogQuery {
   posts: allMarkdownRemark(
-    sort: {frontmatter: {date: DESC}}) {
+    sort: {frontmatter: {date: DESC}}
+    filter: {frontmatter: {templateKey: {eq: "blog-post"}}}
+  ) {
     edges {
       node {
         id
         frontmatter {
           title
           templateKey
-          date(formatString: "MMMM DD, YYYY")
+          date(formatString: "M/DD/YY")
         }
         html
       }

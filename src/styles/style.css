@@ -1,26 +1,59 @@
-p, label {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Courier; color: #000000;}
-label{width: 49ch;}
-span {white-space: pre;}
-a {text-decoration: none;}
-.container {width: 49ch; display: flex; justify-content: space-between;}
-.label {overflow: hidden; text-overflow: ellipsis " [..]"; white-space: nowrap;}
-.label:after { content: " ..................................................." }
-.text {flex-shrink: 0;}
+p, label {
+  margin: 0.0px 0.0px 0.0px 0.0px;
+  font: 12.0px Courier;
+  color: #000000;
+}
+
+label {
+  width: 49ch;
+}
+
+span {
+  white-space: pre;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+}
+
+.container {
+  width: 49ch;
+  display: flex;
+  justify-content: space-between;
+}
+
+.label {
+  overflow: hidden;
+  text-overflow: ellipsis " [..]";
+  white-space: nowrap;
+}
+
+.label:after {
+  content: " ..................................................."
+}
+
+.text {
+  flex-shrink: 0;
+}
 
 .drop {
   cursor: pointer;
   display: block;
 }
 
-input[type="checkbox"]  {
- display: none; /* hide the checkboxes */
+input[type="checkbox"] {
+  display: none;
+  /* hide the checkboxes */
 }
 
-input +.drop +  div
-
-{
-  display:none;
+input+.drop+div {
+  display: none;
 }
-input:checked + .drop + div{
-  display:block;
+
+input:checked+.drop+div {
+  display: block;
 }
