@@ -1,5 +1,34 @@
 const path = require('path');
 
+exports.createSchemaCustomization = ({ actions }) => {
+    const { createTypes } = actions
+    const typeDefs = `
+        type MarkdownRemark implements Node {
+            frontmatter: Frontmatter
+          }
+          type Frontmatter {
+            title: String,
+            description: String,
+            content: Content,
+            templateKey: String,
+            date: Date @dateformat(formatString: "M/DD/YY")
+          }
+          type Content {
+            type: String,
+            artist: String,
+            title: String,
+            file: String,
+            track: Track
+          }
+          type Track {
+            artist: String,
+            title: String,
+            file: String
+          }
+    `
+    createTypes(typeDefs)
+}
+
 exports.createPages = async ({ graphql, actions }) => {
     const { createPage } = actions
     const pageTemplate = path.resolve(`src/components/directory.js`)

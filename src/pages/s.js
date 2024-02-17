@@ -12,7 +12,7 @@ export const BlogPostTemplate = ({ title, date, body}) => {
       <br />
       <div dangerouslySetInnerHTML={{__html: body}}/>
       <br />
-      <p>{date}……</p>
+      <p>{date}......</p>
       <br />
     </section>
   );
