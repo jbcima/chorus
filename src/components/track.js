@@ -9,7 +9,6 @@ const Track = props => {
   const selectTrack = () => {
     if (!isHidden && sound) {
       stop(); 
-      sound.unload(); 
       setIsPlaying(false);
     } else {
       play();
@@ -19,7 +18,8 @@ const Track = props => {
   };
   const [isPlaying, setIsPlaying] = useState(false);
   const [play, { stop, pause, duration, sound }] = useSound('https://or-us.ch/c/S.Maria-Chorus-II-Nov-18-2023.mp3', {
-    html5: true,   
+    html5: true,
+    preload: 'metadata',
     onend: function() {
       console.log('Finished!');
     }
