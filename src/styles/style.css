@@ -1,10 +1,10 @@
-p, label {
+p, label, .controls {
   margin: 0.0px 0.0px 0.0px 0.0px;
   font: 12.0px Courier;
   color: #000000;
 }
 
-label, section, .container {
+label, section, .container, .controls {
   width: 49ch;
 }
 
@@ -23,6 +23,18 @@ img {
 .container {
   display: flex;
   justify-content: space-between;
+}
+
+.controls {
+  text-align: right;
+}
+
+.track, .playButton {
+  cursor: pointer;
+}
+
+.download {
+  color: black;
 }
 
 .label {

@@ -76,7 +76,7 @@ exports.createPages = async ({ graphql, actions }) => {
         createPage({
             path: path,
             component: pageTemplate,
-            context: {title: edge.node.frontmatter.title, description: edge.node.frontmatter.description, content: edge.node.frontmatter.content, navigation: data.data.navigation, currentPath: path } // This is to pass data as props to your component.
+            context: {title: edge.node.frontmatter.title, description: edge.node.frontmatter.description, content: edge.node.frontmatter.content, navigation: data.data.navigation } // This is to pass data as props to your component.
         })
     })
 
