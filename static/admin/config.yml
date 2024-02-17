@@ -2,6 +2,9 @@ backend:
   name: github
   repo: jbcima/chorus
   branch: main
+  base_url: https://or-us-ch.netlify.app/
+
+site_url: https://or-us-ch.netlify.app/
 
 logo_url: /images/logo.png
 
