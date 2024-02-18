@@ -9,7 +9,7 @@ module.exports = {
   }),
   siteMetadata: {
     title: `chorus`,
-    siteUrl: `https://or-us-ch.netlify.app/`
+    siteUrl: `https://or-us-ch.netlify.app/admin/`
   },
   plugins: ["gatsby-plugin-gtag", "gatsby-plugin-image", "gatsby-plugin-sitemap", "gatsby-plugin-decap-cms", {    
     resolve: `gatsby-plugin-gtag`,
