@@ -10,7 +10,7 @@
     "develop": "gatsby develop",
     "start": "gatsby develop",
     "build": "rimraf .cache && rimraf public && gatsby build",
-    "deploy": "rimraf --glob \"dist-remote/chorus/*\" && cpx \"public/**/*.*\" \"dist-remote/chorus\" && cd dist-remote/chorus && git add . && git commit -m \"Update\" && git push -u origin main && cd ../../ && git commit -am \"Update submodule\" && git push -u origin main",
+    "deploy": "cd dist-remote/chorus && git checkout main && cd ../../ && rimraf --glob \"dist-remote/chorus/*\" && cpx \"public/**/*.*\" \"dist-remote/chorus\" && cd dist-remote/chorus && git add . && git commit -m \"Update\" && git push -u origin main",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
   },
