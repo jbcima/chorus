@@ -1,3 +1,0 @@
-[submodule "dist-remote/chorus"]
-	path = dist-remote/chorus
-	url = ssh://orus7196@or-us.ch:65002/home/orus7196/chorus
