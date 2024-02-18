@@ -14,7 +14,7 @@ editor:
 collections:
   - name: "blog"
     label: "Blog"
-    folder: "src/content/s"
+    folder: "src/pages/s"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
@@ -30,7 +30,7 @@ collections:
   - name: pages
     label: Pages
     label_singular: 'Page'
-    folder: src/content/_pages
+    folder: src/pages/_pages
     create: true
     nested:
       depth: 100 
