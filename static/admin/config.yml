@@ -1,6 +1,7 @@
 backend:
   name: github
   repo: jbcima/chorus
+  use_graphql: true
 
 logo_url: /images/logo.png
 
