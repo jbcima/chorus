@@ -9,8 +9,8 @@
   "scripts": {
     "develop": "gatsby develop",
     "start": "gatsby develop",
-    "build": "rimraf .cache && rimraf public && gatsby build",
-    "deploy": "rimraf --glob \"dist-remote/chorus/*\" && cpx \"public/**/*.*\" \"dist-remote/chorus\" && cd dist-remote/chorus && git add . && git commit -m \"Update\" && mkdir -p ~/.ssh && echo ${SSH_KEY} | sed \"s/_/\\n/g\" > ~/.ssh/id_rsa && chmod og-rwx ~/.ssh/id_rsa && GIT_SSH_COMMAND=\" -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no\" && git push -u origin main",
+    "build": "git commit -am \"Update submodule in github\" && rimraf .cache && rimraf public && gatsby build",
+    "deploy": "rimraf --glob \"dist-remote/chorus/*\" && cpx \"public/**/*.*\" \"dist-remote/chorus\" && cd dist-remote/chorus && git add . && git commit -m \"Update\" && mkdir -p ~/.ssh && echo ${SSH_KEY} | sed \"s/_/\\n/g\" > ~/.ssh/id_rsa && chmod og-rwx ~/.ssh/id_rsa && GIT_SSH_COMMAND=\" -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no\" && git push -u origin main && cd ../../ && git commit -am \"Update submodule in github\"",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
   },
