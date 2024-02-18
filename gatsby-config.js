@@ -12,6 +12,10 @@ module.exports = {
     siteUrl: `https://or-us-ch.netlify.app/admin/`
   },
   plugins: ["gatsby-plugin-gtag", "gatsby-plugin-image", "gatsby-plugin-sitemap", "gatsby-plugin-decap-cms", {    
+    resolve: `gatsby-plugin-decap-cms`,
+    options: {
+      enableIdentityWidget: false,
+    },
     resolve: `gatsby-plugin-gtag`,
       options: {
         // your google analytics tracking id
