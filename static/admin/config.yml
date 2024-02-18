@@ -1,6 +1,5 @@
 backend:
   name: git-gateway
-  repo: jbcima/chorus
 
 logo_url: /images/logo.png
 
