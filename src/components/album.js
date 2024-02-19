@@ -1,7 +1,7 @@
 import * as React from "react"
 import { useState } from "react"
-import Track from './track.js';
-import ImageHover from './image-hover.js';
+import Track from './Track';
+import ImageHover from './ImageHover';
 import "../styles/style.css"
 
 const Album = props => {

@@ -1,7 +1,7 @@
 import * as React from "react"
 import { useEffect, useState } from "react"
 import "../styles/style.css"
-import ImageHover from './image-hover.js';
+import ImageHover from './ImageHover';
 import useSound from "use-sound"
 
 const Track = props => {

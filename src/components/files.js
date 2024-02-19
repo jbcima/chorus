@@ -1,37 +1,83 @@
 import * as React from "react"
-import { useState } from "react"
-import Track from './track.js';
-import Album from './album.js';
+import { useRef, useState } from 'react';
+import Track from './Track';
+import Album from './Album';
 import "../styles/style.css"
 
+// import components
+import DisplayTrack from './DisplayTrack';
+import Controls from './Controls';
+import ProgressBar from './ProgressBar';
+
 const Files = props => {
-  const [activeIndex, setActiveIndex] = useState(null);
-  const changeIndex = (index) => {
-    setActiveIndex((prevIndex) => (prevIndex === index ? null : index));
+  const tracks = [
+    {
+      title: 'Trinix ft Rushawn – Its a beautiful day',
+      src: 'https://or-us.ch/file/S.Maria-Chorus-II-Nov-18-2023.mp3',
+      author: 'Trinix ft Rushawn',
+      thumbnail: 'https://raw.githubusercontent.com/Ibaslogic/react-audio-player/main/src/data/trinix.jpeg',
+    },
+    {
+      title: 'Michael Jackson – We Are The World',
+      src: 'https://or-us.ch/file/S.Maria-Chorus-II-Nov-18-2023.mp3',
+      author: 'Michael Jackson',
+      thumbnail: 'https://raw.githubusercontent.com/Ibaslogic/react-audio-player/main/src/data/jackson.jpeg',
+    },
+  ];
+  // states
+  const [trackIndex, setTrackIndex] = useState(0);
+  const [currentTrack, setCurrentTrack] = useState(
+    tracks[trackIndex]
+  );
+  const [timeProgress, setTimeProgress] = useState(0);
+  const [duration, setDuration] = useState(0);
+
+  // reference
+  const audioRef = useRef();
+  const progressBarRef = useRef();
+
+  const handleNext = () => {
+    if (trackIndex >= tracks.length - 1) {
+      setTrackIndex(0);
+      setCurrentTrack(tracks[0]);
+    } else {
+      setTrackIndex((prev) => prev + 1);
+      setCurrentTrack(tracks[trackIndex + 1]);
+    }
   };
+
   return (
-    <main>
-      {props.content && props.content.map((item, index) => (
-        item.type === "track" ? ( 
-          <>
-            <Track 
-              {...item}      
-              id={index}
-              isOpen={activeIndex === index}
-              changeIndex={value => changeIndex(value)} 
-            />
-          </>
-        ) : 
-        <>
-        <Album 
-            {...item}
-            index={index}
-            activeIndex={activeIndex}
-            changeIndex={value => changeIndex(value)} 
-            />
-        </>
-      ))}
-    </main>
+    <>
+      <div className="audio-player">
+        <div className="inner">
+          <DisplayTrack
+            {...{
+              currentTrack,
+              audioRef,
+              setDuration,
+              progressBarRef,
+              handleNext,
+            }}
+          />
+          <Controls
+            {...{
+              audioRef,
+              progressBarRef,
+              duration,
+              setTimeProgress,
+              tracks,
+              trackIndex,
+              setTrackIndex,
+              setCurrentTrack,
+              handleNext,
+            }}
+          />
+          <ProgressBar
+            {...{ progressBarRef, audioRef, timeProgress, duration }}
+          />
+        </div>
+      </div>
+    </>
   )
 }
 
