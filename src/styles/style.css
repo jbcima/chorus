@@ -1,3 +1,7 @@
+body {
+  font: 12.0px Courier;
+  color: #000000;
+}
 p, label, .controls {
   margin: 0.0px 0.0px 0.0px 0.0px;
   font: 12.0px Courier;
