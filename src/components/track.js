@@ -16,7 +16,7 @@ const Track = props => {
     
   };
   const [isPlaying, setIsPlaying] = useState(false);
-  const [play, { pause, duration, sound }] = useSound('https://or-us.ch/c/S.Maria-Chorus-II-Nov-18-2023.mp3', {
+  const [play, { pause, duration, sound }] = useSound('://or-us.ch/file/' + props.file, {
     html5: true,
     preload: 'metadata',
     onend: function() {
