@@ -10,20 +10,7 @@ import Controls from './Controls';
 import ProgressBar from './ProgressBar';
 
 const Files = props => {
-  const tracks = [
-    {
-      title: 'Trinix ft Rushawn – Its a beautiful day',
-      src: 'https://or-us.ch/file/S.Maria-Chorus-II-Nov-18-2023.mp3',
-      author: 'Trinix ft Rushawn',
-      thumbnail: 'https://raw.githubusercontent.com/Ibaslogic/react-audio-player/main/src/data/trinix.jpeg',
-    },
-    {
-      title: 'Michael Jackson – We Are The World',
-      src: 'https://or-us.ch/file/S.Maria-Chorus-II-Nov-18-2023.mp3',
-      author: 'Michael Jackson',
-      thumbnail: 'https://raw.githubusercontent.com/Ibaslogic/react-audio-player/main/src/data/jackson.jpeg',
-    },
-  ];
+  const tracks = props.content;
   // states
   const [trackIndex, setTrackIndex] = useState(0);
   const [currentTrack, setCurrentTrack] = useState(
@@ -47,19 +34,55 @@ const Files = props => {
   };
 
   return (
-    <>
-      <div className="audio-player">
-        <div className="inner">
-          <DisplayTrack
+    <main>
+      {props.content && props.content.map((item, index) => (
+        item.type === "track" ? ( 
+          <>
+            <Track
             {...{
-              currentTrack,
               audioRef,
-              setDuration,
               progressBarRef,
+              duration,
+              timeProgress,
+              setTimeProgress,
+              tracks,
+              trackIndex,
+              setTrackIndex,
+              setCurrentTrack,
               handleNext,
+              item
             }}
+            />
+          </>
+        ) : 
+        <>
+          <Album
+              {...{
+                audioRef,
+                progressBarRef,
+                duration,
+                timeProgress,
+                setTimeProgress,
+                tracks,
+                trackIndex,
+                setTrackIndex,
+                setCurrentTrack,
+                handleNext,
+                item
+              }}
           />
-          <Controls
+        </>
+      ))}
+      <DisplayTrack
+              {...{
+                currentTrack,
+                audioRef,
+                setDuration,
+                progressBarRef,
+                handleNext
+              }}
+            />
+      <Controls
             {...{
               audioRef,
               progressBarRef,
@@ -75,9 +98,7 @@ const Files = props => {
           <ProgressBar
             {...{ progressBarRef, audioRef, timeProgress, duration }}
           />
-        </div>
-      </div>
-    </>
+    </main>
   )
 }
 

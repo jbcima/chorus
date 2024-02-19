@@ -7,6 +7,7 @@ const DisplayTrack = ({
   progressBarRef,
   handleNext,
 }) => {
+  const url = "//or-us.ch/file/"
   const onLoadedMetadata = () => {
     const seconds = audioRef.current.duration;
     setDuration(seconds);
@@ -16,15 +17,15 @@ const DisplayTrack = ({
   return (
     <div>
       <audio
-        src={currentTrack.src}
+        src={url + currentTrack.file}
         ref={audioRef}
         onLoadedMetadata={onLoadedMetadata}
         onEnded={handleNext}
       />
       <div className="audio-info">
         <div className="audio-image">
-          {currentTrack.thumbnail ? (
-            <img src={currentTrack.thumbnail} alt="audio avatar" />
+          {currentTrack.art ? (
+            <img src={currentTrack.art} alt="audio avatar" />
           ) : (
             <div className="icon-wrapper">
               <span className="audio-icon">
@@ -35,7 +36,7 @@ const DisplayTrack = ({
         </div>
         <div className="text">
           <p className="title">{currentTrack.title}</p>
-          <p>{currentTrack.author}</p>
+          <p>{currentTrack.artist}</p>
         </div>
       </div>
     </div>
