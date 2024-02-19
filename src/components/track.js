@@ -85,7 +85,7 @@ const Track = props => {
           ) : (
             <p className="playButton" onClick={playingButton}>Pause</p>
           )}
-          <p><a href={url + props.file} className="download">Download</a></p>
+          <p><a href={url + props.file} className="download" download>Download</a></p>
           <br />
         </div>
       }
