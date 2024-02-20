@@ -10,7 +10,20 @@ import Controls from './Controls';
 import ProgressBar from './ProgressBar';
 
 const Files = props => {
-  const tracks = props.content;
+  let tracks = [];
+  props.content.forEach(item => {
+    if (item.type === "track") {
+      tracks.push(item)
+    }
+    if (item.type === "album") {
+      item.tracks.forEach(track => {
+        tracks.push(track)
+      })
+    }
+  })
+  console.log(tracks)
+
+
   // states
   const [trackIndex, setTrackIndex] = useState(0);
   const [currentTrack, setCurrentTrack] = useState(

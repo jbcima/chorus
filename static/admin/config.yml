@@ -70,8 +70,8 @@ collections:
               name: art
               required: false
               widget: "file"
-            - label: 'Track'
-              name: 'track'
+            - label: 'Tracks'
+              name: 'tracks'
               widget: 'list'
               fields:
                 - {label: Artist, name: artist, widget: string, required: false}
