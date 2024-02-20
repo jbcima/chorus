@@ -27,7 +27,6 @@ const Files = props => {
   const [currentTrack, setCurrentTrack] = useState(
     tracks[trackIndex]
   );
-  const [isPlaying, setIsPlaying] = useState(false);
   const [timeProgress, setTimeProgress] = useState(0);
   const [duration, setDuration] = useState(0);
 
@@ -51,14 +50,14 @@ const Files = props => {
           <>
             <File
             {...{
+              audioRef,
               duration,
+              setTimeProgress,
               timeProgress,
               tracks,
               trackIndex,
               setTrackIndex,
               setCurrentTrack,
-              isPlaying,
-              setIsPlaying,
               item
             }}
             />
