@@ -11,7 +11,7 @@ content:
       - title: 3 (combo)
         file: venison-man-cii/3 (combo).mp3
       - title: 4 milk bread
-        file: /file/venison-man-cii/4 milk bread.mp3
+        file: venison-man-cii/4 milk bread.mp3
       - title: 5 catabasis reduction a
         file: venison-man-cii/5 catabasis reduction a.mp3
       - artist: ""
