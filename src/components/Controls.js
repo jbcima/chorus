@@ -92,11 +92,11 @@ const Controls = ({
       <div className="volume">
         <button onClick={() => setMuteVolume((prev) => !prev)}>
           {muteVolume || volume < 5 ? (
-            'off'
+            'mute'
           ) : volume < 40 ? (
             'low'
           ) : (
-            'high'
+            'max'
           )}
         </button>
         <input

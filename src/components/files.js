@@ -1,7 +1,6 @@
 import * as React from "react"
 import { useRef, useState } from 'react';
-import Track from './Track';
-import Album from './Album';
+import File from './File';
 import "../styles/style.css"
 
 // import components
@@ -11,7 +10,7 @@ import ProgressBar from './ProgressBar';
 
 const Files = props => {
   let tracks = [];
-  props.content.map((item) => {
+  props.content.map((item, i) => {
     if (item.type === "track") {
       tracks.push(item)
     }
@@ -21,8 +20,6 @@ const Files = props => {
       })
     }
   })
-  console.log('tracks')
-  console.log(tracks)
 
   // states
   const [listIndex, setListIndex] = useState(0);
@@ -51,49 +48,21 @@ const Files = props => {
   return (
     <main>
       {props.content && props.content.map((item, i) => 
-        item.type === "track" ? ( 
           <>
-            <Track
+            <File
             {...{
-              audioRef,
-              progressBarRef,
               duration,
               timeProgress,
-              setTimeProgress,
               tracks,
               trackIndex,
               setTrackIndex,
               setCurrentTrack,
               isPlaying,
               setIsPlaying,
-              handleNext,
-              item,
-              listIndex,
-              setListIndex,
+              item
             }}
             />
           </>
-        ) : 
-        <>
-          <Album
-              {...{
-                audioRef,
-                progressBarRef,
-                duration,
-                timeProgress,
-                setTimeProgress,
-                tracks,
-                trackIndex,
-                setTrackIndex,
-                setCurrentTrack,
-                isPlaying,
-                setIsPlaying,
-                item,
-                listIndex,
-                setListIndex,
-              }}
-          />
-        </>
       )}
       <DisplayTrack
               {...{
