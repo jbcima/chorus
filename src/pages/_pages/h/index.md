@@ -21,4 +21,11 @@ content:
         file: venison-man-cii/7 big girls don't cry.mp3
       - title: 8 jewelry
         file: venison-man-cii/jewelry.mp3
+  - type: album
+    artist: this is the name of an artist and their artist name is very long
+    title: this is the title of the artist's album which is also very long
+    tracks:
+      - file: demo file that doesnt exist
+        title: demo track that is very long
+        artist: demoartistdemoartistdemoartistdemoartistdemoartist
 ---
