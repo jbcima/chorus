@@ -20,7 +20,7 @@ exports.createSchemaCustomization = ({ actions }) => {
             artist: String,
             title: String,
             file: String,
-            track: [Track],
+            tracks: [Track],
             art: String
         }
         type Track {
@@ -52,7 +52,7 @@ exports.createPages = async ({ graphql, actions }) => {
                         title
                         file
                         art
-                        track {
+                        tracks {
                             artist
                             title
                             file
