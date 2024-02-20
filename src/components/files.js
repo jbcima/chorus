@@ -21,8 +21,6 @@ const Files = props => {
       })
     }
   })
-  console.log(tracks)
-
 
   // states
   const [trackIndex, setTrackIndex] = useState(0);
