@@ -4,7 +4,23 @@ import Track from './Track';
 import ImageHover from './ImageHover';
 import "../styles/style.css"
 
-const Album = props => {
+const Album = ({
+  audioRef,
+  progressBarRef,
+  duration,
+  timeProgress,
+  setTimeProgress,
+  tracks,
+  trackIndex,
+  setTrackIndex,
+  setCurrentTrack,
+  isPlaying,
+  setIsPlaying,
+  handleNext,
+  item,
+  listIndex,
+  setListIndex,
+}) => {
   const [onShow, setOnShow] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   function toggle() {
@@ -12,22 +28,35 @@ const Album = props => {
   }
   return (
     <React.Fragment>
-      <ImageHover image={props.art} onShow={onShow} />
+      <ImageHover image={item.art} onShow={onShow} />
       <p className="p1 container track" onClick={toggle} onMouseEnter={() => setOnShow(() => true)} onMouseLeave={() => setOnShow(() => false)}>
-        <span className="p1 s1 label">{props.artist}</span>
-        <span className="text">{props.title ? ( ' ' + props.title ) : null }</span>
+        <span className="p1 s1 label">{item.artist}</span>
+        <span className="text">{item.title ? ( ' ' + item.title ) : null }</span>
       </p>
       <br />
         <div>
           {
-            props.tracks.map((track, index) => 
+            item.tracks.map((track, key) => 
               <>
               <div style={{display: (isOpen) ? 'block' : 'none'}}>
                 <Track 
-                  {...track}      
-                  id={props.index + '_' + index}
-                  isOpen={props.activeIndex === (props.index + '_' + index)}
-                  changeIndex={() => props.changeIndex(props.index + '_' + index)} 
+                  {...{
+                  audioRef,
+                  progressBarRef,
+                  duration,
+                  timeProgress,
+                  setTimeProgress,
+                  tracks,
+                  trackIndex,
+                  setTrackIndex,
+                  setCurrentTrack,
+                  isPlaying,
+                  setIsPlaying,
+                  handleNext,
+                  item: track,
+                  listIndex,
+                  setListIndex,
+                }}
                 />
               </div>
               </>

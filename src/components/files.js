@@ -11,7 +11,7 @@ import ProgressBar from './ProgressBar';
 
 const Files = props => {
   let tracks = [];
-  props.content.forEach(item => {
+  props.content.map((item) => {
     if (item.type === "track") {
       tracks.push(item)
     }
@@ -21,12 +21,16 @@ const Files = props => {
       })
     }
   })
+  console.log('tracks')
+  console.log(tracks)
 
   // states
+  const [listIndex, setListIndex] = useState(0);
   const [trackIndex, setTrackIndex] = useState(0);
   const [currentTrack, setCurrentTrack] = useState(
     tracks[trackIndex]
   );
+  const [isPlaying, setIsPlaying] = useState(false);
   const [timeProgress, setTimeProgress] = useState(0);
   const [duration, setDuration] = useState(0);
 
@@ -46,7 +50,7 @@ const Files = props => {
 
   return (
     <main>
-      {props.content && props.content.map((item, index) => (
+      {props.content && props.content.map((item, i) => 
         item.type === "track" ? ( 
           <>
             <Track
@@ -60,8 +64,12 @@ const Files = props => {
               trackIndex,
               setTrackIndex,
               setCurrentTrack,
+              isPlaying,
+              setIsPlaying,
               handleNext,
-              item
+              item,
+              listIndex,
+              setListIndex,
             }}
             />
           </>
@@ -78,12 +86,15 @@ const Files = props => {
                 trackIndex,
                 setTrackIndex,
                 setCurrentTrack,
-                handleNext,
-                item
+                isPlaying,
+                setIsPlaying,
+                item,
+                listIndex,
+                setListIndex,
               }}
           />
         </>
-      ))}
+      )}
       <DisplayTrack
               {...{
                 currentTrack,
