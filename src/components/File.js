@@ -13,6 +13,8 @@ const File = ({
   trackIndex,
   setTrackIndex,
   setCurrentTrack,
+  isPlaying,
+  setIsPlaying,
   item
 }) => {
   const [onShow, setOnShow] = useState(false);
@@ -35,6 +37,8 @@ const File = ({
                 trackIndex,
                 setTrackIndex,
                 setCurrentTrack,
+                isPlaying,
+                setIsPlaying,
                 item: track
               }}
             />
@@ -48,6 +52,8 @@ const File = ({
           duration,
           timeProgress,
           setTimeProgress,
+          isPlaying,
+          setIsPlaying,
           item
         }}
       />
