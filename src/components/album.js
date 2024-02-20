@@ -20,7 +20,7 @@ const Album = props => {
       <br />
         <div>
           {
-            props.track.map((track, index) => 
+            props.tracks.map((track, index) => 
               <>
               <div style={{display: (isOpen) ? 'block' : 'none'}}>
                 <Track 
