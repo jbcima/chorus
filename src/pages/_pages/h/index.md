@@ -3,7 +3,7 @@ title: h
 content:
   - type: album
     artist: venïson man
-    track:
+    tracks:
       - title: 1 _
         file: venison-man-cii/1 _.mp3
       - title: 2 bad joy
