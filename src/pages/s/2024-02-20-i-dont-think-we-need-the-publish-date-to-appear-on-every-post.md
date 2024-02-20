@@ -1,0 +1,16 @@
+---
+templateKey: blog-post
+title: I don't think we need the publish date to appear on every post.
+date: 2024-02-20T21:46:59.685Z
+---
+perhaps visibility can be toggled on and off? but nice to have on every post so it can be ordered by chronology...
+
+cabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbages**cabbages**cabbages*cabbages*cabbages[cabbages](cabbages)cabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbages
+
+> cabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbages 
+>
+> * cabbagescabbages
+>
+> 1. > cabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbagescabbages
+
+![](/uploads/screen-shot-2024-02-20-at-4.44.06-pm.png)
