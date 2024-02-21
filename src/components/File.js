@@ -17,18 +17,23 @@ const File = ({
   setCurrentTrack,
   isPlaying,
   setIsPlaying,
+  activeIndex,
+  setActiveIndex,
+  isOpen,
   item,
   index
 }) => {
   const [onShow, setOnShow] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpenAlbum, setIsOpenAlbum] = useState(false);
   function toggle(rowIndex) {
-    setIsOpen((isOpen) => !isOpen);
-    if(rowIndex) {
-        const rowTrack = tracks.findIndex((track) => track.index == rowIndex);
-        setTrackIndex(rowTrack);
-        setCurrentTrack(tracks[rowTrack]);
-        console.log(rowTrack)
+    if(rowIndex == "album"){
+      setIsOpenAlbum((isOpenAlbum) => !isOpenAlbum);
+    } else if (rowIndex && isOpen == false) {
+      setActiveIndex(rowIndex);
+      const track = tracks.findIndex((track) => track.index == rowIndex);
+      setTrackIndex(track);
+      setCurrentTrack(tracks[track]);
+      setIsPlaying(true);
     }
   }
   let children = null;
@@ -50,6 +55,9 @@ const File = ({
                 setCurrentTrack,
                 isPlaying,
                 setIsPlaying,
+                activeIndex,
+                setActiveIndex,
+                isOpen: activeIndex == index + "_" + i,
                 item: track,
                 index: index + "_" + i
               }}
@@ -57,6 +65,8 @@ const File = ({
           )}
       </ul>
     );
+    index = "album";
+    isOpen = isOpenAlbum;
   } else {
     children = (
       <FileControls {...{
@@ -75,7 +85,7 @@ const File = ({
   return (
     <li>
       <ImageHover image={item.art} onShow={onShow} />
-      <p className="p1 container track" index={item.tracks && item.tracks.length ? '' : index} onClick={() => toggle(index)} onMouseEnter={() => setOnShow(() => true)} onMouseLeave={() => setOnShow(() => false)}>
+      <p className="p1 container track" index={index} onClick={() => toggle(index)} onMouseEnter={() => setOnShow(() => true)} onMouseLeave={() => setOnShow(() => false)}>
       <span className="p1 s1 label">{item.artist}</span>
       <span className="text">{item.title ? ( ' ' + item.title ) : null }</span>
       </p>

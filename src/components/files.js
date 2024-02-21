@@ -19,6 +19,7 @@ const Files = props => {
       })
     }
   })
+  const [activeIndex, setActiveIndex] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [trackIndex, setTrackIndex] = useState(0);
   const [currentTrack, setCurrentTrack] = useState(
@@ -59,6 +60,9 @@ const Files = props => {
               isPlaying,
               setIsPlaying,
               item,
+              activeIndex,
+              setActiveIndex,
+              isOpen: activeIndex === i,
               index: i
             }}
             />
