@@ -84,7 +84,7 @@ const Files = props => {
               }}
       />
       <ProgressBar
-        {...{ progressBarRef, progressBarTicks, audioRef, timeProgress, duration }}
+        {...{ progressBarRef, progressBarTicks, audioRef, timeProgress, duration, isPlaying }}
       />
     </>
   )

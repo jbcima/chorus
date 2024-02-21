@@ -8,12 +8,20 @@ const ProgressBar = ({
   audioRef,
   timeProgress,
   duration,
+  isPlaying
 }) => {
+  const [isActive, setIsActive] = useState(false);
+  useEffect(() => {
+    if (isPlaying && !isActive) {
+      setIsActive(true);
+    }
+  }, [isPlaying]);
+
   const handleProgressChange = () => {
     audioRef.current.currentTime = progressBarRef.current.value;
   };
   return (
-    <div className="progress container">
+    <div className="progress container" style={{ display: isActive ? " flex" : "none" }}>
       <span className="label time current">{formatTime(timeProgress)}</span>
       <div className="progress-bar">
         <p className="range-ticks">{progressBarTicks}</p>
