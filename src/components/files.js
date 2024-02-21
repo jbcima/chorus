@@ -1,8 +1,8 @@
 import * as React from "react"
 import { useRef, useState } from 'react';
-import File from './File';
-import DisplayTrack from './DisplayTrack';
-import ProgressBar from './ProgressBar';
+import File from './File.js';
+import DisplayTrack from './DisplayTrack.js';
+import ProgressBar from './ProgressBar.js';
 import "../styles/style.css"
 
 const Files = props => {

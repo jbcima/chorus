@@ -1,5 +1,5 @@
 import * as React from "react"
-import Navigation from '../components/Navigation';
+import Navigation from '../components/Navigation.js';
 import { graphql } from 'gatsby'
 import "../styles/style.css"
 

@@ -1,7 +1,7 @@
 import * as React from "react"
 import { useState } from "react"
-import ImageHover from './ImageHover';
-import FileControls from './FileControls';
+import ImageHover from './ImageHover.js';
+import FileControls from './FileControls.js';
 import "../styles/style.css"
 
 const File = ({
