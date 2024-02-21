@@ -28,12 +28,14 @@ const ImageHover = props => {
   })
   return (
       <>  
+      {props.onShow && props.image &&
       <div className="image-hover-canvas">
           <div ref={imageRef} style={{
             transform: `translate(${position.x}px, ${position.y}px)`,
             backgroundImage: `url(${props.image})`,
           }} className="image-hover" />
       </div>
+      }
       </>
   )
 }
