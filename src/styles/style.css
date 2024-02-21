@@ -27,6 +27,10 @@ p, label, .controls {
   color: #000000;
 }
 
+section p {
+  overflow-wrap: break-word;
+}
+
 label, section, .container, .controls, .progress {
   width: 49ch;
 }
