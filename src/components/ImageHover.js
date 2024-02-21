@@ -22,7 +22,7 @@ const ImageHover = props => {
   })
   return (
       <>  
-        {props.onShow && 
+        {props.onShow && props.image &&
           <div style={{
             transform: `translate(${position.x}px, ${position.y}px)`,
             backgroundImage: `url(${props.image})`,

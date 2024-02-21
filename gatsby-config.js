@@ -25,7 +25,7 @@ module.exports = {
   {
     resolve: 'gatsby-plugin-manifest',
     options: {
-      "icon": "./src/images/icon.jpeg"
+      "icon": "./src/images/icon.svg"
     }
   }, "gatsby-transformer-remark", "gatsby-plugin-sharp", "gatsby-transformer-sharp", {
     resolve: 'gatsby-source-filesystem',

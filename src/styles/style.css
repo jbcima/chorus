@@ -2,14 +2,11 @@ body, main {
   font: 12.0px Courier;
   color: #000000;
 }
-p, label, .controls {
-  margin: 0.0px 0.0px 0.0px 0.0px;
-  font: 12.0px Courier;
-  color: #000000;
-}
 
-label, section, .container, .controls {
-  width: 49ch;
+ul, li {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
 }
 
 span {
@@ -23,6 +20,27 @@ a {
 img {
   width: 100%;
 }
+
+p, label, .controls {
+  margin: 0.0px 0.0px 0.0px 0.0px;
+  font: 12.0px Courier;
+  color: #000000;
+}
+
+label, section, .container, .controls, .progress {
+  width: 49ch;
+}
+
+.label {
+  overflow: hidden;
+  text-overflow: ellipsis " [..]";
+  white-space: nowrap;
+}
+
+.label.row:after {
+  content: " ..................................................."
+}
+
 
 .container {
   display: flex;
@@ -41,14 +59,79 @@ img {
   color: black;
 }
 
-.label {
-  overflow: hidden;
-  text-overflow: ellipsis " [..]";
-  white-space: nowrap;
+.progress {
+  position: fixed;
+  bottom: 0px;
+  background: white;
+  align-items: center;
+  padding-top: 4px;
+  padding-bottom: 8px;
+  align-items: center;
 }
 
-.label:after {
-  content: " ..................................................."
+.time {
+  width: 7ch;
+}
+
+.progress-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 33ch;
+}
+.progress-bar .range-ticks {
+  position: absolute;
+  width: 33ch;
+}
+
+:root {
+  --slider-width: 33ch;
+  --slider-height: 14px;
+}
+
+input[type='range'] {
+  margin: 0px;
+  cursor: ew-resize;
+  overflow: hidden;
+  z-index: 3;
+}
+
+input[type='range'] {
+  width: var(--slider-width);
+  -webkit-appearance: none;
+  background-color: transparent;
+}
+input[type='range']::-webkit-slider-runnable-track {
+  height: var(--slider-height);
+  -webkit-appearance: none;
+  color: #13bba4;
+  margin-top: -1px;
+}
+input[type='range']::-webkit-slider-thumb {
+  width: 0px;
+  -webkit-appearance: none;
+  height: var(--slider-height);
+  box-shadow: calc(-1 * var(--slider-width)) 0 0 var(--slider-width) transparent;
+}
+
+/* FF */
+input[type="range"]::-moz-range-progress {
+  background-color: #43e5f7; 
+}
+input[type="range"]::-moz-range-thumb {
+  height: var(--slider-height);
+  width: 0;
+  border: none;
+  box-shadow: calc(-1 * var(--slider-width)) 0 0 var(--slider-width) transparent;
+  box-sizing: border-box;
+}
+
+/* IE */
+input[type="range"]::-ms-fill-lower {
+  background-color: #43e5f7; 
+}
+input[type="range"]::-ms-fill-upper {  
+  background-color: #13bba4;
 }
 
 .image-hover-canvas {
@@ -71,3 +154,4 @@ img {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
