@@ -120,7 +120,7 @@ input[type='range']::-webkit-slider-thumb {
 
 /* FF */
 input[type="range"]::-moz-range-progress {
-  background-color: #43e5f7; 
+  background-color: transparent; 
 }
 input[type="range"]::-moz-range-thumb {
   height: var(--slider-height);
@@ -132,10 +132,10 @@ input[type="range"]::-moz-range-thumb {
 
 /* IE */
 input[type="range"]::-ms-fill-lower {
-  background-color: #43e5f7; 
+  background-color: transparent; 
 }
 input[type="range"]::-ms-fill-upper {  
-  background-color: #13bba4;
+  background-color: transparent;
 }
 
 .image-hover-canvas {

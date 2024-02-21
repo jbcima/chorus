@@ -35,6 +35,10 @@ const File = ({
       setTrackIndex(rowIndex);
       setCurrentTrack(tracks[rowIndex]);
       setIsPlaying(true);
+    } else if (isOpen == true) {
+      setIsPlaying(false);
+      audioRef.current.pause();
+      setActiveIndex(-1)
     }
   }
   let children = null;
