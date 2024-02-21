@@ -1,12 +1,12 @@
 import * as React from "react"
-import Nav from '../components/Navigation';
+import Navigation from '../components/Navigation';
 import { graphql } from 'gatsby'
 import "../styles/style.css"
 
 const IndexPage = ({data}) => {
   return (
     <main>
-      <Nav navigation={data.navigation} />
+      <Navigation navigation={data.navigation} />
     </main>
   )
 }

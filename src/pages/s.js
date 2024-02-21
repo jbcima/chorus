@@ -1,5 +1,5 @@
 import * as React from "react"
-import Nav from '../components/Navigation';
+import Navigation from '../components/Navigation';
 import { graphql } from 'gatsby'
 import "../styles/style.css"
 
@@ -21,7 +21,7 @@ const BlogPage = ({location, data}) => {
   const posts = data.posts.edges;
   return (
     <main>
-      <Nav navigation={data.navigation} path={location.pathname} />
+      <Navigation navigation={data.navigation} path={location.pathname} />
       {posts.map((post) => 
         <>
           <BlogPostTemplate title={post.node.frontmatter.title} date={post.node.frontmatter.date} body={post.node.html} />
