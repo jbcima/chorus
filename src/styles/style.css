@@ -68,7 +68,6 @@ label, section, .container, .controls, .progress {
   bottom: 0px;
   background: white;
   align-items: center;
-  padding-top: 4px;
   padding-bottom: 8px;
   align-items: center;
 }
