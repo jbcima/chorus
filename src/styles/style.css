@@ -64,7 +64,7 @@ label, section, .container, .controls, .progress {
 }
 
 .progress {
-  position: fixed;
+  position: sticky;
   bottom: 0px;
   background: white;
   align-items: center;
