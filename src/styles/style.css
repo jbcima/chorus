@@ -60,14 +60,14 @@ label, section, .container, .controls, .progress {
 }
 
 .progress {
-  position: absolute;
+  position: fixed;
   bottom: 0px;
   background: white;
   align-items: center;
+  padding-top: 4px;
   padding-bottom: 8px;
+  align-items: center;
 }
-
-.progress.
 
 .image-hover-canvas {
   position: absolute;
@@ -89,3 +89,4 @@ label, section, .container, .controls, .progress {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
