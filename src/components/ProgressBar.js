@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useEffect, useState } from 'react';
-import formatTime from '../utils/formatTime';
+import formatTime from '../utils/formatTime.js';
 
 const ProgressBar = ({
   progressBarRef,

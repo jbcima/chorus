@@ -1,6 +1,6 @@
 import * as React from "react"
-import Nav from './Navigation';
-import Files from './Files';
+import Nav from './Navigation.js';
+import Files from './Files.js';
 import "../styles/style.css"
 
 const DirectoryPage = props => {
