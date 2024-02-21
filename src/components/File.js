@@ -28,6 +28,7 @@ const File = ({
         const rowTrack = tracks.findIndex((track) => track.index == rowIndex);
         setTrackIndex(rowTrack);
         setCurrentTrack(tracks[rowTrack]);
+        console.log(rowTrack)
     }
   }
   let children = null;
@@ -74,7 +75,7 @@ const File = ({
   return (
     <li>
       <ImageHover image={item.art} onShow={onShow} />
-      <p className="p1 container track" onClick={() => toggle(index)} onMouseEnter={() => setOnShow(() => true)} onMouseLeave={() => setOnShow(() => false)}>
+      <p className="p1 container track" index={item.tracks && item.tracks.length ? '' : index} onClick={() => toggle(index)} onMouseEnter={() => setOnShow(() => true)} onMouseLeave={() => setOnShow(() => false)}>
       <span className="p1 s1 label">{item.artist}</span>
       <span className="text">{item.title ? ( ' ' + item.title ) : null }</span>
       </p>
