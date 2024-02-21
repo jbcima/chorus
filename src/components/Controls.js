@@ -81,7 +81,7 @@ const Controls = ({
         </button>
 
         <button onClick={togglePlayPause}>
-          {isPlaying ? 'pause' : 'play'}
+          {isPlaying}
         </button>
         <button onClick={skipForward}>
           forward

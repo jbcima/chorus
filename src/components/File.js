@@ -26,7 +26,6 @@ const File = ({
   const [onShow, setOnShow] = useState(false);
   const [isOpenAlbum, setIsOpenAlbum] = useState(false);
   function toggle(rowIndex) {
-    console.log(tracks)
     if(rowIndex == "album"){
       setIsOpenAlbum((isOpenAlbum) => !isOpenAlbum);
     } else if (isOpen == false) {
