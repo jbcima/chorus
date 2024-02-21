@@ -30,7 +30,9 @@ const FileControls = ({
       `${(progressBarRef.current.value / duration) * 100}%`
     );
     let calculateTicks = Math.round((currentTime / duration) * 100)
-    setProgressBarTicks("-".repeat((calculateTicks / 100) * 33));
+    if(calculateTicks !=0) {
+      setProgressBarTicks("-".repeat((calculateTicks / 100) * 33));
+    }
     playAnimationRef.current = requestAnimationFrame(repeat);
   }, [audioRef, duration, progressBarRef, setTimeProgress]);
 
