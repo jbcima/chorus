@@ -10,8 +10,9 @@ const ImageHover = props => {
   });
   const mouseMove = (e) => {
     if(imageRef.current) {
-      var width = -(e.pageX + imageRef.current.offsetLeft) / 50;
-      var height = -(e.pageY + imageRef.current.offsetTop) / 50;
+      var width = -(-e.pageX + imageRef.current.offsetLeft) / 6;
+      var height = -(-e.pageY + imageRef.current.offsetTop) / 6;
+      console.log(width + ' . ' + height)
       setPosition({
         x: width,
         y: height
@@ -28,12 +29,10 @@ const ImageHover = props => {
   return (
       <>  
       <div className="image-hover-canvas">
-        {props.onShow && props.image && 
           <div ref={imageRef} style={{
             transform: `translate(${position.x}px, ${position.y}px)`,
             backgroundImage: `url(${props.image})`,
           }} className="image-hover" />
-        }
       </div>
       </>
   )
