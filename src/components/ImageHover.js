@@ -8,8 +8,9 @@ const ImageHover = props => {
     y: 0
   });
   const mouseMove = (e) => {
-    const width = window.innerWidth / 2;
-    const height = window.innerHeight / 2;
+    const width = (window.innerWidth / e.clientX) + 50;
+    const height = (window.innerHeight / e.clientY) + 50;
+    console.log (width + ' / ' + height)
     setPosition({
       x: width,
       y: height
@@ -26,6 +27,7 @@ const ImageHover = props => {
       <>  
         {props.onShow && props.image &&
           <div style={{
+            transform: `translate(-${position.x}%, -${position.y}%)`,
             backgroundImage: `url(${props.image})`,
           }} className="image-hover" />
         }

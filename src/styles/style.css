@@ -143,8 +143,6 @@ input[type="range"]::-ms-fill-upper {
   position: fixed;
   top: 50%;
   left: 50%;
-  /* bring your own prefixes */
-  transform: translate(-50%, -50%);
   background-repeat: no-repeat;
   background-size: cover;
 }
