@@ -35,7 +35,7 @@ exports.createSchemaCustomization = ({ actions }) => {
 
 exports.createPages = async ({ graphql, actions }) => {
     const { createPage } = actions
-    const pageTemplate = path.resolve(`src/components/directory.js`)
+    const pageTemplate = path.resolve(`src/components/Directory.js`)
 
     const data = await graphql(`
         query PagesQuery {
