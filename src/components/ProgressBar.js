@@ -4,22 +4,19 @@ import formatTime from '../utils/formatTime';
 
 const ProgressBar = ({
   progressBarRef,
+  progressBarTicks,
   audioRef,
   timeProgress,
   duration,
 }) => {
-  const [ticks, setTicks] = useState('');
   const handleProgressChange = () => {
     audioRef.current.currentTime = progressBarRef.current.value;
-    let calculateTicks = Math.round((audioRef.current.currentTime / duration) * 100)
-    setTicks("-".repeat((calculateTicks / 100) * 33))
-    
   };
   return (
     <div className="progress container">
       <span className="label time current">{formatTime(timeProgress)}</span>
       <div className="progress-bar">
-        <p className="range-ticks">{ticks}</p>
+        <p className="range-ticks">{progressBarTicks}</p>
         <input
           type="range"
           ref={progressBarRef}

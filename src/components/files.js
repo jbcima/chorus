@@ -31,6 +31,7 @@ const Files = props => {
   // reference
   const audioRef = useRef();
   const progressBarRef = useRef();
+  const [progressBarTicks, setProgressBarTicks] = useState('');
 
   const handleNext = () => {
     if (trackIndex >= tracks.length - 1) {
@@ -51,6 +52,8 @@ const Files = props => {
             {...{
               audioRef,
               progressBarRef,
+              setProgressBarTicks,
+              progressBarTicks,
               duration,
               setTimeProgress,
               timeProgress,
@@ -80,7 +83,7 @@ const Files = props => {
               }}
       />
       <ProgressBar
-        {...{ progressBarRef, audioRef, timeProgress, duration }}
+        {...{ progressBarRef, progressBarTicks, audioRef, timeProgress, duration }}
       />
     </>
   )
