@@ -7,18 +7,19 @@ import "../styles/style.css"
 
 const Files = props => {
   let tracks = [];
-  props.content.map((item, i) => {
+  props.content.map((item, index) => {
     if (item.type === "track") {
+      item["index"] = index;
       tracks.push(item)
     }
     if (item.type === "album") {
-      item.tracks.forEach(track => {
+      item.tracks.map((track, albumIndex) => {
+        track["index"] = index + "_" + albumIndex;
         tracks.push(track)
       })
     }
+    console.log(tracks)
   })
-
-  // states
   const [isPlaying, setIsPlaying] = useState(false);
   const [trackIndex, setTrackIndex] = useState(0);
   const [currentTrack, setCurrentTrack] = useState(
@@ -48,6 +49,7 @@ const Files = props => {
             <File
             {...{
               audioRef,
+              progressBarRef,
               duration,
               setTimeProgress,
               timeProgress,
@@ -57,8 +59,7 @@ const Files = props => {
               setCurrentTrack,
               isPlaying,
               setIsPlaying,
-              item,
-              index: i
+              item
             }}
             />
           </>
@@ -71,7 +72,7 @@ const Files = props => {
                 progressBarRef,
                 handleNext
               }}
-            />
+      />
       <ProgressBar
         {...{ progressBarRef, audioRef, timeProgress, duration }}
       />

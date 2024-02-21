@@ -6,10 +6,12 @@ import "../styles/style.css"
 
 const File = ({
   audioRef,
+  progressBarRef,
   duration,
   setTimeProgress,
   timeProgress,
   tracks,
+  setTracks,
   trackIndex,
   setTrackIndex,
   setCurrentTrack,
@@ -21,11 +23,8 @@ const File = ({
 }) => {
   const [onShow, setOnShow] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  function toggle({index, album}) {
+  function toggle() {
     setIsOpen((isOpen) => !isOpen);
-    if(album && index){
-      setTrackIndex(album + '_' + index); setCurrentTrack(tracks[index])
-    }
   }
   let children = null;
   if (item.tracks && item.tracks.length) {
@@ -35,10 +34,12 @@ const File = ({
             <File
               {...{
                 audioRef,
+                progressBarRef,
                 duration,
                 setTimeProgress,
                 timeProgress,
                 tracks,
+                setTracks,
                 trackIndex,
                 setTrackIndex,
                 setCurrentTrack,
@@ -56,6 +57,7 @@ const File = ({
     children = (
       <FileControls {...{
           audioRef,
+          progressBarRef,
           duration,
           timeProgress,
           setTimeProgress,
@@ -69,7 +71,7 @@ const File = ({
   return (
     <li>
       <ImageHover image={item.art} onShow={onShow} />
-      <p className="p1 container track"  index={index} album={album} onClick={() => toggle({index, album})} onMouseEnter={() => setOnShow(() => true)} onMouseLeave={() => setOnShow(() => false)}>
+      <p className="p1 container track"  index={index} album={album} onClick={() => toggle()} onMouseEnter={() => setOnShow(() => true)} onMouseLeave={() => setOnShow(() => false)}>
       <span className="p1 s1 label">{item.artist}</span>
       <span className="text">{item.title ? ( ' ' + item.title ) : null }</span>
       </p>
