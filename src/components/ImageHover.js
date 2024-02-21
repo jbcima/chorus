@@ -1,5 +1,6 @@
 import * as React from "react"
 import { useState, useEffect, useRef } from 'react';
+import {isMobile} from 'react-device-detect';
 import "../styles/style.css"
 
 const ImageHover = props => {
@@ -27,7 +28,7 @@ const ImageHover = props => {
   })
   return (
       <>  
-      {props.onShow && props.image &&
+      {props.onShow && props.image && !isMobile && 
       <div className="image-hover-canvas">
           <div ref={imageRef} style={{
             transform: `translate(${position.x}px, ${position.y}px)`,
