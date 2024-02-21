@@ -1,20 +1,22 @@
 import * as React from "react"
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import "../styles/style.css"
 
 const ImageHover = props => {
+  const imageRef = useRef()
   const [position, setPosition] = useState({
     x: 0,
     y: 0
   });
   const mouseMove = (e) => {
-    const width = (window.innerWidth / e.clientX) + 50;
-    const height = (window.innerHeight / e.clientY) + 50;
-    console.log (width + ' / ' + height)
-    setPosition({
-      x: width,
-      y: height
-    });
+    if(imageRef.current) {
+      var width = -(e.pageX + imageRef.current.offsetLeft) / 50;
+      var height = -(e.pageY + imageRef.current.offsetTop) / 50;
+      setPosition({
+        x: width,
+        y: height
+      });
+    }
   };
   useEffect(() => {
     document.body.addEventListener('mousemove', mouseMove );
@@ -25,12 +27,14 @@ const ImageHover = props => {
   })
   return (
       <>  
-        {props.onShow && props.image &&
-          <div style={{
-            transform: `translate(-${position.x}%, -${position.y}%)`,
+      <div className="image-hover-canvas">
+        {props.onShow && props.image && 
+          <div ref={imageRef} style={{
+            transform: `translate(${position.x}px, ${position.y}px)`,
             backgroundImage: `url(${props.image})`,
           }} className="image-hover" />
         }
+      </div>
       </>
   )
 }
