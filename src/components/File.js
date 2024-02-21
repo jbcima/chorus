@@ -86,8 +86,8 @@ const File = ({
     <li>
       <ImageHover image={item.art} onShow={onShow} />
       <p className="p1 container track" index={index} onClick={() => toggle(index)} onMouseEnter={() => setOnShow(() => true)} onMouseLeave={() => setOnShow(() => false)}>
-      <span className="p1 s1 label">{item.artist}</span>
-      <span className="text">{item.title ? ( ' ' + item.title ) : null }</span>
+        <span className="label row">{item.artist}</span>
+        <span className="text">{item.title ? ( ' ' + item.title ) : null }</span>
       </p>
       <br />
       {isOpen && children}

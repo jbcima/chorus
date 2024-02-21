@@ -43,7 +43,8 @@ const Files = props => {
   };
 
   return (
-    <main>
+    <>
+    <ul>
       {props.content && props.content.map((item, i) => 
           <>
             <File
@@ -67,7 +68,8 @@ const Files = props => {
             }}
             />
           </>
-      )}
+        )}
+      </ul>
       <DisplayTrack
               {...{
                 currentTrack,
@@ -80,7 +82,7 @@ const Files = props => {
       <ProgressBar
         {...{ progressBarRef, audioRef, timeProgress, duration }}
       />
-    </main>
+    </>
   )
 }
 

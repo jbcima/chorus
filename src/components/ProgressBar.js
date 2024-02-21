@@ -12,16 +12,16 @@ const ProgressBar = ({
   };
 
   return (
-    <div className="progress">
-      <span className="time current">{formatTime(timeProgress)}</span>
+    <p className="progress container">
+      <span className="label time current">{formatTime(timeProgress)}</span>
       <input
         type="range"
         ref={progressBarRef}
         defaultValue="0"
         onChange={handleProgressChange}
       />
-      <span className="time">{formatTime(duration)}</span>
-    </div>
+      <span className="label time">{formatTime(duration)}</span>
+    </p>
   );
 };
 

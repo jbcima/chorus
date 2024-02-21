@@ -2,14 +2,11 @@ body, main {
   font: 12.0px Courier;
   color: #000000;
 }
-p, label, .controls {
-  margin: 0.0px 0.0px 0.0px 0.0px;
-  font: 12.0px Courier;
-  color: #000000;
-}
 
-label, section, .container, .controls {
-  width: 49ch;
+ul, li {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
 }
 
 span {
@@ -23,6 +20,27 @@ a {
 img {
   width: 100%;
 }
+
+p, label, .controls {
+  margin: 0.0px 0.0px 0.0px 0.0px;
+  font: 12.0px Courier;
+  color: #000000;
+}
+
+label, section, .container, .controls, .progress {
+  width: 49ch;
+}
+
+.label {
+  overflow: hidden;
+  text-overflow: ellipsis " [..]";
+  white-space: nowrap;
+}
+
+.label.row:after {
+  content: " ..................................................."
+}
+
 
 .container {
   display: flex;
@@ -41,15 +59,15 @@ img {
   color: black;
 }
 
-.label {
-  overflow: hidden;
-  text-overflow: ellipsis " [..]";
-  white-space: nowrap;
+.progress {
+  position: absolute;
+  bottom: 0px;
+  background: white;
+  align-items: center;
+  padding-bottom: 8px;
 }
 
-.label:after {
-  content: " ..................................................."
-}
+.progress.
 
 .image-hover-canvas {
   position: absolute;
@@ -70,10 +88,4 @@ img {
   height: 75px;
   background-repeat: no-repeat;
   background-size: cover;
-}
-
-ul, li {
-  list-style-type: none;
-  margin: 0px;
-  padding: 0px;
 }
