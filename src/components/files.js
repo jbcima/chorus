@@ -74,24 +74,9 @@ const Files = props => {
                 handleNext
               }}
             />
-      <Controls
-            {...{
-              audioRef,
-              progressBarRef,
-              duration,
-              setTimeProgress,
-              tracks,
-              trackIndex,
-              setTrackIndex,
-              setCurrentTrack,
-              isPlaying,
-              setIsPlaying,
-              handleNext,
-            }}
-          />
-          <ProgressBar
-            {...{ progressBarRef, audioRef, timeProgress, duration }}
-          />
+      <ProgressBar
+        {...{ progressBarRef, audioRef, timeProgress, duration }}
+      />
     </main>
   )
 }
