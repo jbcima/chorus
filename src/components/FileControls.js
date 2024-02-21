@@ -12,7 +12,7 @@ const FileControls = ({
   setIsPlaying,
   item
 }) => {
-  const url="https://or-us.ch/file/"
+  const url="://or-us.ch/file/"
 
   const togglePlayPause = () => {
     setIsPlaying((prev) => !prev);

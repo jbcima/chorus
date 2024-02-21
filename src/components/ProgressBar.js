@@ -11,17 +11,10 @@ const ProgressBar = ({
   const [ticks, setTicks] = useState('');
   const handleProgressChange = () => {
     audioRef.current.currentTime = progressBarRef.current.value;
-    let calculateTicks = Math.round(audioRef.current.currentTime)
-    calculateTicks = Math.round((calculateTicks / 100) * 33)
-    setTicks("-".repeat(calculateTicks))
+    let calculateTicks = Math.round((audioRef.current.currentTime / duration) * 100)
+    setTicks("-".repeat((calculateTicks / 100) * 33))
     
   };
-  useEffect(() => {
-    audioRef.current.currentTime = progressBarRef.current.value;
-    let calculateTicks = Math.round(audioRef.current.currentTime)
-    calculateTicks = Math.round((calculateTicks / 100) * 33)
-    setTicks("-".repeat(calculateTicks))
-  }, [audioRef, duration, progressBarRef]);
   return (
     <div className="progress container">
       <span className="label time current">{formatTime(timeProgress)}</span>

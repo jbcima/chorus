@@ -7,7 +7,7 @@ const DisplayTrack = ({
   progressBarRef,
   handleNext,
 }) => {
-  const url = "//or-us.ch/file/"
+  const url = "https://or-us.ch/file/"
   const onLoadedMetadata = () => {
     const seconds = audioRef.current.duration;
     setDuration(seconds);
