@@ -1,14 +1,10 @@
 const formatTime = (time) => {
   if (time && !isNaN(time)) {
-    const minutes = Math.floor(time / 60);
-    const formatMinutes =
-      minutes < 10 ? `0${minutes}` : `${minutes}`;
-    const seconds = Math.floor(time % 60);
-    const formatSeconds =
-      seconds < 10 ? `0${seconds}` : `${seconds}`;
-    return `${formatMinutes}:${formatSeconds}`;
+    const date = new Date(null);
+    date.setSeconds(time);
+    return date.toISOString().slice(12, 19);
   }
-  return '00:00';
+  return '0:00:00';
 };
 
 export default formatTime
