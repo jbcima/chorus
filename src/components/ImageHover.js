@@ -12,7 +12,6 @@ const ImageHover = props => {
     if(imageRef.current) {
       var width = -(-e.pageX + imageRef.current.offsetLeft) / 6;
       var height = -(-e.pageY + imageRef.current.offsetTop) / 6;
-      console.log(width + ' . ' + height)
       setPosition({
         x: width,
         y: height
