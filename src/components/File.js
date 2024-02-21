@@ -1,8 +1,8 @@
 import * as React from "react"
-import { useEffect, useState } from "react"
-import "../styles/style.css"
+import { useState } from "react"
 import ImageHover from './ImageHover';
 import FileControls from './FileControls';
+import "../styles/style.css"
 
 const File = ({
   audioRef,
@@ -15,18 +15,23 @@ const File = ({
   setCurrentTrack,
   isPlaying,
   setIsPlaying,
-  item
+  item,
+  index,
+  album
 }) => {
   const [onShow, setOnShow] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  function toggle() {
+  function toggle({index, album}) {
     setIsOpen((isOpen) => !isOpen);
+    if(album && index){
+      setTrackIndex(album + '_' + index); setCurrentTrack(tracks[index])
+    }
   }
   let children = null;
   if (item.tracks && item.tracks.length) {
     children = (
       <ul>
-          {item.tracks.map((track) => 
+          {item.tracks.map((track,i) => 
             <File
               {...{
                 audioRef,
@@ -39,7 +44,9 @@ const File = ({
                 setCurrentTrack,
                 isPlaying,
                 setIsPlaying,
-                item: track
+                item: track,
+                index: i,
+                album: index
               }}
             />
           )}
@@ -62,7 +69,7 @@ const File = ({
   return (
     <li>
       <ImageHover image={item.art} onShow={onShow} />
-      <p className="p1 container track" onClick={() => toggle(item.file)} onMouseEnter={() => setOnShow(() => true)} onMouseLeave={() => setOnShow(() => false)}>
+      <p className="p1 container track"  index={index} album={album} onClick={() => toggle({index, album})} onMouseEnter={() => setOnShow(() => true)} onMouseLeave={() => setOnShow(() => false)}>
       <span className="p1 s1 label">{item.artist}</span>
       <span className="text">{item.title ? ( ' ' + item.title ) : null }</span>
       </p>

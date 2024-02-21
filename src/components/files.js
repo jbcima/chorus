@@ -1,12 +1,9 @@
 import * as React from "react"
 import { useRef, useState } from 'react';
 import File from './File';
-import "../styles/style.css"
-
-// import components
 import DisplayTrack from './DisplayTrack';
-import Controls from './Controls';
 import ProgressBar from './ProgressBar';
+import "../styles/style.css"
 
 const Files = props => {
   let tracks = [];
@@ -60,7 +57,8 @@ const Files = props => {
               setCurrentTrack,
               isPlaying,
               setIsPlaying,
-              item
+              item,
+              index: i
             }}
             />
           </>
