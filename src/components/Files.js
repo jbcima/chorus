@@ -40,6 +40,7 @@ const Files = props => {
     } else {
       setTrackIndex((prev) => prev + 1);
       setCurrentTrack(tracks[trackIndex + 1]);
+      setActiveIndex(trackIndex)
     }
   };
 

@@ -32,9 +32,8 @@ const File = ({
       setIsOpenAlbum((isOpenAlbum) => !isOpenAlbum);
     } else if (isOpen == false) {
       setActiveIndex(rowIndex);
-      const track = tracks.findIndex((track) => track.index == rowIndex);
-      setTrackIndex(track);
-      setCurrentTrack(tracks[track]);
+      setTrackIndex(rowIndex);
+      setCurrentTrack(tracks[rowIndex]);
       setIsPlaying(true);
     }
   }
@@ -42,7 +41,7 @@ const File = ({
   if (item.tracks && item.tracks.length) {
     children = (
       <ul>
-          {item.tracks.map((track,i) => 
+          {item.tracks.map((subItem,i) => 
             <File
               {...{
                 audioRef,
@@ -61,9 +60,9 @@ const File = ({
                 setIsPlaying,
                 activeIndex,
                 setActiveIndex,
-                isOpen: activeIndex == index + "_" + i,
-                item: track,
-                index: index + "_" + i
+                isOpen: activeIndex == tracks.findIndex((track) => track.index == index + "_" + i),
+                item: subItem,
+                index: tracks.findIndex((track) => track.index == index + "_" + i)
               }}
             />
           )}
