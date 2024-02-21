@@ -18,13 +18,17 @@ const File = ({
   isPlaying,
   setIsPlaying,
   item,
-  index,
-  album
+  index
 }) => {
   const [onShow, setOnShow] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  function toggle() {
+  function toggle(rowIndex) {
     setIsOpen((isOpen) => !isOpen);
+    if(rowIndex) {
+        const rowTrack = tracks.findIndex((track) => track.index == rowIndex);
+        setTrackIndex(rowTrack);
+        setCurrentTrack(tracks[rowTrack]);
+    }
   }
   let children = null;
   if (item.tracks && item.tracks.length) {
@@ -46,8 +50,7 @@ const File = ({
                 isPlaying,
                 setIsPlaying,
                 item: track,
-                index: i,
-                album: index
+                index: index + "_" + i
               }}
             />
           )}
@@ -71,7 +74,7 @@ const File = ({
   return (
     <li>
       <ImageHover image={item.art} onShow={onShow} />
-      <p className="p1 container track"  index={index} album={album} onClick={() => toggle()} onMouseEnter={() => setOnShow(() => true)} onMouseLeave={() => setOnShow(() => false)}>
+      <p className="p1 container track" onClick={() => toggle(index)} onMouseEnter={() => setOnShow(() => true)} onMouseLeave={() => setOnShow(() => false)}>
       <span className="p1 s1 label">{item.artist}</span>
       <span className="text">{item.title ? ( ' ' + item.title ) : null }</span>
       </p>

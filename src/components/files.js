@@ -18,7 +18,6 @@ const Files = props => {
         tracks.push(track)
       })
     }
-    console.log(tracks)
   })
   const [isPlaying, setIsPlaying] = useState(false);
   const [trackIndex, setTrackIndex] = useState(0);
@@ -59,7 +58,8 @@ const Files = props => {
               setCurrentTrack,
               isPlaying,
               setIsPlaying,
-              item
+              item,
+              index: i
             }}
             />
           </>
