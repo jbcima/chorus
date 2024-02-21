@@ -48,7 +48,7 @@ const FileControls = ({
 
   return (
     <div className="controls">
-      <p className="playButton" onClick={togglePlayPause}>{isPlaying ? 'Pause' : 'Play'}</p>
+      <p className="playButton"><span onClick={togglePlayPause}>{isPlaying ? 'Pause' : 'Play'}</span></p>
       <p><a href={url + item.file} className="download" download>Download</a></p>
       <br />
     </div>

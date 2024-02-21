@@ -55,7 +55,7 @@ label, section, .container, .controls, .progress {
   text-align: right;
 }
 
-.track, .playButton {
+.track, .playButton span {
   cursor: pointer;
 }
 
