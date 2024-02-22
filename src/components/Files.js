@@ -63,7 +63,7 @@ const Files = props => {
         'previoustrack',
         () => { handlePrevious() }
     );
-  }, []);
+  });
   return (
     <>
     <ul>
