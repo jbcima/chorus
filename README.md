@@ -11,7 +11,7 @@
 
 1.  **Develop locally**
 
-    Start up the site ans then navigate to http://localhost:8000
+    Start up the site and then navigate to http://localhost:8000
 
     ```shell
     gatsby develop
