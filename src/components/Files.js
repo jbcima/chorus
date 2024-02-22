@@ -68,7 +68,8 @@ const Files = props => {
               activeIndex,
               setActiveIndex,
               isOpen: activeIndex === i,
-              index: i
+              index: i,
+              key: i
             }}
             />
           </>

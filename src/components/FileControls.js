@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useEffect, useRef, useCallback } from 'react';
 
 
 const FileControls = ({
@@ -29,7 +29,7 @@ const FileControls = ({
       `${(progressBarRef.current.value / duration) * 100}%`
     );
     let calculateTicks = Math.round((currentTime / duration) * 100)
-    if(calculateTicks !=0) {
+    if(calculateTicks !==0) {
       setProgressBarTicks("-".repeat((calculateTicks / 100) * 33));
     } else { 
       setProgressBarTicks("")

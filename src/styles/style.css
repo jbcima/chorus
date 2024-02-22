@@ -45,7 +45,6 @@ label, section, .container, .controls, .progress {
   content: " ..................................................."
 }
 
-
 .container {
   display: flex;
   justify-content: space-between;

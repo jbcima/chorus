@@ -5,7 +5,7 @@ import "../styles/style.css"
 const NotFoundPage = () => {
   return (
     <main className="container">
-      <img src={GIF} />
+      <img src={GIF} alt="404"/>
     </main>
   )
 }

@@ -28,14 +28,14 @@ const File = ({
   const [onShow, setOnShow] = useState(false);
   const [isOpenAlbum, setIsOpenAlbum] = useState(false);
   function toggle(rowIndex) {
-    if(rowIndex == "album"){
+    if(rowIndex === "album"){
       setIsOpenAlbum((isOpenAlbum) => !isOpenAlbum);
-    } else if (isOpen == false) {
+    } else if (isOpen === false) {
       setActiveIndex(rowIndex);
       setTrackIndex(rowIndex);
       setCurrentTrack(tracks[rowIndex]);
       setIsPlaying(true);
-    } else if (isOpen == true) {
+    } else if (isOpen === true) {
       setIsPlaying(false);
       audioRef.current.pause();
       setActiveIndex(-1)
@@ -64,9 +64,10 @@ const File = ({
                 setIsPlaying,
                 activeIndex,
                 setActiveIndex,
-                isOpen: activeIndex == tracks.findIndex((track) => track.index == index + "_" + i),
+                isOpen: activeIndex === tracks.findIndex((track) => track.index === index + "_" + i),
                 item: subItem,
-                index: tracks.findIndex((track) => track.index == index + "_" + i)
+                index: tracks.findIndex((track) => track.index === index + "_" + i),
+                key: index + "_" + i
               }}
             />
           )}
