@@ -3,6 +3,7 @@ import { useRef, useState } from 'react';
 import File from './File.js';
 import DisplayTrack from './DisplayTrack.js';
 import ProgressBar from './ProgressBar.js';
+import setTrackMetadata from '../utils/setTrackMetadata.js';
 import "../styles/style.css"
 
 const Files = props => {
@@ -40,10 +41,29 @@ const Files = props => {
       setCurrentTrack(tracks[0]);
     } else {
       setTrackIndex((prev) => prev + 1);
-      setCurrentTrack(tracks[trackIndex + 1]);
+      setCurrentTrack(tracks[trackIndex]);
       setActiveIndex(trackIndex)
     }
   };
+  const handlePrevious = () => {
+    if (trackIndex >= tracks.length - 1) {
+      setTrackIndex(0);
+      setCurrentTrack(tracks[0]);
+    } else {
+      setTrackIndex((prev) => prev - 1);
+      setTrackMetadata(tracks[trackIndex])
+      setCurrentTrack(tracks[trackIndex]);
+      setActiveIndex(trackIndex)
+    }
+  };
+  navigator.mediaSession.setActionHandler(
+    'nexttrack',
+    () => { handleNext() }
+  );
+  navigator.mediaSession.setActionHandler(
+      'previoustrack',
+      () => { handlePrevious() }
+  );
 
   return (
     <>
