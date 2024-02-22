@@ -15,6 +15,7 @@ const Files = props => {
     if (item.type === "album") {
       item.tracks.map((track, albumIndex) => {
         track["index"] = index + "_" + albumIndex;
+        track["album"] = item.title ? item.title : item.artist;
         tracks.push(track)
       })
     }
@@ -61,6 +62,7 @@ const Files = props => {
               tracks,
               trackIndex,
               setTrackIndex,
+              currentTrack,
               setCurrentTrack,
               isPlaying,
               setIsPlaying,
