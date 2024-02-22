@@ -16,7 +16,6 @@ const File = ({
   setTracks,
   trackIndex,
   setTrackIndex,
-  currentTrack,
   setCurrentTrack,
   isPlaying,
   setIsPlaying,
@@ -35,12 +34,6 @@ const File = ({
       setActiveIndex(rowIndex);
       setTrackIndex(rowIndex);
       setCurrentTrack(tracks[rowIndex]);
-      navigator.mediaSession.metadata = new MediaMetadata({
-        title: currentTrack.title ? currentTrack.title : '',//t
-        artist: currentTrack.artist ? currentTrack.artist : '',
-        album: currentTrack.album ? currentTrack.album : '',
-        artwork: [{ src: currentTrack.art ? currentTrack.art : '' }],
-      });
       setIsPlaying(true);
     } else if (isOpen === true) {
       setIsPlaying(false);
@@ -66,7 +59,6 @@ const File = ({
                 setTracks,
                 trackIndex,
                 setTrackIndex,
-                currentTrack,
                 setCurrentTrack,
                 isPlaying,
                 setIsPlaying,
