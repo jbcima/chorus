@@ -1,5 +1,5 @@
 import * as React from "react"
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import File from './File.js';
 import DisplayTrack from './DisplayTrack.js';
 import ProgressBar from './ProgressBar.js';
@@ -54,15 +54,16 @@ const Files = props => {
       setActiveIndex(trackIndex - 1)
     }
   };
-  navigator.mediaSession.setActionHandler(
-    'nexttrack',
-    () => { handleNext() }
-  );
-  navigator.mediaSession.setActionHandler(
-      'previoustrack',
-      () => { handlePrevious() }
-  );
-
+  useEffect(() => {
+    navigator.mediaSession.setActionHandler(
+      'nexttrack',
+      () => { handleNext() }
+    );
+    navigator.mediaSession.setActionHandler(
+        'previoustrack',
+        () => { handlePrevious() }
+    );
+  }, []);
   return (
     <>
     <ul>
