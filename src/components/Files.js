@@ -41,7 +41,7 @@ const Files = props => {
     } else {
       setTrackIndex((prev) => prev + 1);
       setCurrentTrack(tracks[trackIndex + 1]);
-      setActiveIndex(trackIndex)
+      setActiveIndex(trackIndex + 1)
     }
   };
   const handlePrevious = () => {
@@ -51,7 +51,7 @@ const Files = props => {
     } else {
       setTrackIndex((prev) => prev - 1);
       setCurrentTrack(tracks[trackIndex - 1]);
-      setActiveIndex(trackIndex)
+      setActiveIndex(trackIndex - 1)
     }
   };
   navigator.mediaSession.setActionHandler(
