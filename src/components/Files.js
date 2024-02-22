@@ -3,7 +3,6 @@ import { useRef, useState } from 'react';
 import File from './File.js';
 import DisplayTrack from './DisplayTrack.js';
 import ProgressBar from './ProgressBar.js';
-import setTrackMetadata from '../utils/setTrackMetadata.js';
 import "../styles/style.css"
 
 const Files = props => {
@@ -41,7 +40,7 @@ const Files = props => {
       setCurrentTrack(tracks[0]);
     } else {
       setTrackIndex((prev) => prev + 1);
-      setCurrentTrack(tracks[trackIndex]);
+      setCurrentTrack(tracks[trackIndex + 1]);
       setActiveIndex(trackIndex)
     }
   };
@@ -51,8 +50,7 @@ const Files = props => {
       setCurrentTrack(tracks[0]);
     } else {
       setTrackIndex((prev) => prev - 1);
-      setTrackMetadata(tracks[trackIndex])
-      setCurrentTrack(tracks[trackIndex]);
+      setCurrentTrack(tracks[trackIndex - 1]);
       setActiveIndex(trackIndex)
     }
   };
